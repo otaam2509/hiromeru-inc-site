@@ -4,81 +4,219 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>株式会社ヒロメル</title>
-<meta name="description" content="株式会社ヒロメルは、中小企業向けにAIで業務を自動化する会社です。公式LINEのAI応対、営業メールの自動化、動画の切り抜き量産を、自社で毎日運用しながらご提供しています。">
+<meta name="description" content="株式会社ヒロメルは、中小企業の「人手が回らない仕事」をAIで毎日回る仕組みにする会社です。公式LINEのAI応対、営業メールの自動化、動画の切り抜き量産を、自社で毎日運用しながらご提供しています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#f7f6f2;--fg:#1e1e1e;--muted:#5f5f5a;--accent:#1f4e79;--line:#e2e0d8;--card:#ffffff}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#15161a;--fg:#ececec;--muted:#a8a8a0;--accent:#8fb8e8;--line:#2c2e35;--card:#1d1f25}}
-  :root[data-theme="dark"]{--bg:#15161a;--fg:#ececec;--muted:#a8a8a0;--accent:#8fb8e8;--line:#2c2e35;--card:#1d1f25}
+  :root{
+    --bg:#0f1420;--bg2:#141b2b;--fg:#f2f4f8;--muted:#a9b1c3;--line:rgba(255,255,255,.09);
+    --card:#182033;--accent:#5eead4;--accent2:#7cb8ff;--warn:#ffb86b;--chip:#1f2a44;
+    --line-green:#06c755;
+  }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.9;font-size:16px}
-  .wrap{max-width:820px;margin:0 auto;padding:0 16px}
-  header{padding:56px 0 24px;border-bottom:1px solid var(--line)}
-  .brand{font-size:14px;letter-spacing:.2em;color:var(--muted)}
-  h1{font-size:28px;margin:8px 0 12px;font-weight:700}
-  .lead{font-size:17px;color:var(--fg);max-width:640px}
-  section{padding:40px 0;border-bottom:1px solid var(--line)}
-  h2{font-size:15px;letter-spacing:.15em;color:var(--accent);margin:0 0 20px;font-weight:700}
-  .grid{display:grid;grid-template-columns:1fr;gap:16px}
-  @media (min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
-  .card h3{margin:0 0 8px;font-size:17px}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent2);text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(15,20,32,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.06em;color:var(--fg)}
+  .logo .mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+  nav .links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+  nav .links a{color:var(--muted)}
+  @media (max-width:640px){nav .links{display:none}}
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:88px 0 72px}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(600px 300px at 15% 10%,rgba(94,234,212,.18),transparent 60%),
+    radial-gradient(700px 360px at 90% 30%,rgba(124,184,255,.16),transparent 60%);
+    pointer-events:none}
+  .grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(60% 60% at 50% 30%,#000 30%,transparent 100%);opacity:.6;pointer-events:none}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;color:var(--accent);font-weight:700;margin-bottom:14px}
+  h1{font-size:clamp(30px,4.6vw,48px);line-height:1.3;margin:0 0 18px;font-weight:900;letter-spacing:.01em}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:17px;max-width:520px;margin:0 0 26px}
+  .cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#06231f;font-weight:700;padding:13px 22px;border-radius:999px;box-shadow:0 8px 30px rgba(94,234,212,.25)}
+  .cta.ghost{background:transparent;color:var(--fg);border:1px solid var(--line);box-shadow:none;margin-left:10px}
+  .stats{display:flex;gap:22px;margin-top:30px;flex-wrap:wrap}
+  .stat{font-size:13px;color:var(--muted)}
+  .stat b{display:block;color:var(--fg);font-size:15px}
+  /* phone mock */
+  .phone{width:300px;max-width:100%;margin:0 auto;background:#0b0f19;border:1px solid var(--line);border-radius:36px;padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.04)}
+  .phone .screen{background:#7f9bb5;border-radius:26px;overflow:hidden;font-size:13px;color:#111}
+  .phone .bar{background:#fff;padding:10px 14px;display:flex;align-items:center;gap:8px;font-weight:700;color:#111;border-bottom:1px solid #e5e5e5}
+  .phone .bar .av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#5eead4,#7cb8ff)}
+  .phone .bar small{color:#666;font-weight:400;margin-left:auto;font-size:11px}
+  .chat{padding:12px 10px;display:flex;flex-direction:column;gap:8px;background:#8aa4bd}
+  .msg{max-width:82%;padding:8px 11px;border-radius:14px;line-height:1.5;font-size:12.5px;position:relative}
+  .msg.user{align-self:flex-end;background:#8de35c;border-bottom-right-radius:4px}
+  .msg.ai{align-self:flex-start;background:#fff;border-bottom-left-radius:4px}
+  .msg .t{display:block;font-size:10px;color:#345;margin-top:3px;text-align:right}
+  .msg.ai .t{text-align:left}
+  .tag{display:inline-block;font-size:10px;background:#0f1420;color:#5eead4;border-radius:6px;padding:1px 6px;margin-bottom:4px;font-weight:700}
+  .phone .foot{background:#fff;padding:9px 12px;color:#999;font-size:12px;border-top:1px solid #e5e5e5}
+  .caption{text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
+  /* sections */
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  .kicker{font-size:13px;letter-spacing:.18em;color:var(--accent);font-weight:700;margin-bottom:10px}
+  h2{font-size:clamp(24px,3.2vw,34px);margin:0 0 14px;font-weight:900;line-height:1.35}
+  .sub{color:var(--muted);max-width:640px;margin:0 0 36px}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:760px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+  .card .icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--chip)}
+  .card h3{margin:0;font-size:19px;font-weight:700}
   .card p{margin:0;color:var(--muted);font-size:15px}
-  dl{display:grid;grid-template-columns:8em 1fr;gap:8px 16px;margin:0}
-  dt{color:var(--muted)}
-  dd{margin:0}
-  a{color:var(--accent);text-decoration:none;border-bottom:1px solid currentColor}
-  footer{padding:28px 0 48px;color:var(--muted);font-size:13px}
-  .note{font-size:14px;color:var(--muted);margin-top:16px}
+  .demo{margin-top:6px;background:#0b0f19;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.7}
+  .demo .lbl{font-size:11px;color:var(--accent);letter-spacing:.12em;font-weight:700;margin-bottom:6px}
+  .mail{font-family:inherit}
+  .mail .hd{color:var(--muted);font-size:12px;border-bottom:1px dashed var(--line);padding-bottom:6px;margin-bottom:8px}
+  .mail .hl{background:rgba(94,234,212,.15);border-radius:3px;padding:0 3px}
+  .shorts{display:flex;gap:8px}
+  .short{flex:1;aspect-ratio:9/16;border-radius:8px;background:linear-gradient(160deg,#1f2a44,#0f1420);border:1px solid var(--line);position:relative;overflow:hidden;min-width:0}
+  .short::after{content:"";position:absolute;left:12%;right:12%;bottom:14%;height:10px;background:rgba(255,255,255,.7);border-radius:3px}
+  .short::before{content:"";position:absolute;left:12%;right:35%;bottom:26%;height:10px;background:rgba(94,234,212,.8);border-radius:3px}
+  .short span{position:absolute;top:8px;left:8px;font-size:10px;color:var(--muted)}
+  .short .play{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.9)}
+  .short .play::after{content:"";position:absolute;left:10px;top:7px;border-left:10px solid #0f1420;border-top:6px solid transparent;border-bottom:6px solid transparent}
+  /* flow */
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:step}
+  @media (max-width:760px){.flow{grid-template-columns:1fr}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .step::before{counter-increment:step;content:"0" counter(step);font-size:13px;color:var(--accent);font-weight:900;letter-spacing:.14em}
+  .step h3{margin:6px 0 6px;font-size:17px}
+  .step p{margin:0;color:var(--muted);font-size:14.5px}
+  /* why */
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:760px){.why{grid-template-columns:1fr}}
+  .why div{padding:20px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent);border:1px solid var(--line)}
+  .why b{display:block;font-size:16px;margin-bottom:6px}
+  .why p{margin:0;color:var(--muted);font-size:14.5px}
+  /* company */
+  dl{display:grid;grid-template-columns:9em 1fr;gap:10px 18px;margin:0}
+  @media (max-width:520px){dl{grid-template-columns:1fr}dt{margin-top:8px}}
+  dt{color:var(--muted)}dd{margin:0}
+  .contact{background:linear-gradient(135deg,rgba(94,234,212,.12),rgba(124,184,255,.12));border:1px solid var(--line);border-radius:22px;padding:36px;text-align:center}
+  .contact h2{margin-bottom:8px}
+  .contact p{color:var(--muted);margin:0 0 20px}
+  footer{padding:30px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="brand">HIROMERU INC.</div>
-    <h1>株式会社ヒロメル</h1>
-    <p class="lead">中小企業の「人手が回らない仕事」を、AIで毎日回る仕組みにする会社です。すべてのサービスを自社の業務で毎日運用し、その実物をそのままお渡しします。</p>
-  </header>
+<nav><div class="wrap">
+  <a class="logo" href="#"><span class="mark"></span>株式会社ヒロメル</a>
+  <div class="links"><a href="#services">サービス</a><a href="#flow">進め方</a><a href="#company">会社概要</a><a href="#contact">お問い合わせ</a></div>
+</div></nav>
 
-  <section>
-    <h2>事業内容</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>公式LINEのAI応対</h3>
-        <p>LINEやメールに届いた問い合わせにAIが24時間一次対応し、予約の受付・変更・リマインドまで自動化します。担当者が判断すべき状態に整理して引き継ぐ設計です。既存のLINEや予約の導線はそのままに、会話の部分だけを強くします。</p>
-      </div>
-      <div class="card">
-        <h3>営業メールの自動化</h3>
-        <p>宛先の収集から、相手の会社ごとに内容を差し込んだ文面の作成、送信、返信の検知までを一式で自動化します。返信が来た文面と来なかった文面の差を記録し、書き方を更新し続けます。二重送信の防止と配信停止の管理も仕組みに含みます。</p>
-      </div>
-      <div class="card">
-        <h3>動画の切り抜き量産</h3>
-        <p>お手持ちの長尺動画（YouTube・セミナー・配信など）から見どころを選び、縦型のショート動画に編集して毎日1本ずつお届けします。TikTok・Instagramリール・YouTubeショートへ同じ素材から展開します。</p>
-      </div>
-      <div class="card">
-        <h3>AI導入支援</h3>
-        <p>「どこがAIで自動化できて、どこは人がやるべきか」を業務を伺ったうえで整理し、日々の事務作業（返信の下書き、日報、集計など）の自動化を、運用まで含めてご支援します。</p>
+<header class="hero">
+  <div class="grid-bg"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">AI × 業務自動化</span>
+      <h1>人手が回らない仕事を、<br><em>AIで毎日回る仕組み</em>にする。</h1>
+      <p class="lead">問い合わせへの返信、新規開拓のメール、動画の投稿。「大事なのに後回しになる仕事」を、AIが24時間こなす形に作り替えます。すべて自社の業務で毎日運用し、その実物をそのままお渡しします。</p>
+      <a class="cta" href="#contact">相談する</a><a class="cta ghost" href="#services">サービスを見る</a>
+      <div class="stats">
+        <div class="stat"><b>自社運用</b>売り物を自分たちで毎日使っています</div>
+        <div class="stat"><b>既存の導線はそのまま</b>LINE・予約・サイトを作り直しません</div>
+        <div class="stat"><b>人が判断する所は残す</b>AIは一次対応と下ごしらえ</div>
       </div>
     </div>
-    <p class="note">いずれも、まず現状を伺ったうえでご提案します。費用は内容に応じてお見積りします。</p>
-  </section>
+    <div>
+      <div class="phone"><div class="screen">
+        <div class="bar"><span class="av"></span>公式LINE<small>23:41</small></div>
+        <div class="chat">
+          <div class="msg user">明日の予約、時間を15時に変えられますか？<span class="t">23:41 既読</span></div>
+          <div class="msg ai"><span class="tag">AIが一次対応</span>お問い合わせありがとうございます。明日15:00のお席は空きがございます。変更を承りますので、お名前をお願いいたします。<span class="t">23:41</span></div>
+          <div class="msg user">田中です<span class="t">23:42 既読</span></div>
+          <div class="msg ai">田中様、明日15:00へ変更いたしました。前日の夜にリマインドをお送りします。<span class="t">23:42</span></div>
+          <div class="msg ai"><span class="tag">担当者へ引き継ぎ</span>「田中様 15:00へ変更／予約表 更新済み」<span class="t">担当者にだけ通知</span></div>
+        </div>
+        <div class="foot">メッセージを入力</div>
+      </div></div>
+      <p class="caption">営業時間外でも、AIが答えて予約表まで更新。担当者には整理された結果だけ届きます。</p>
+    </div>
+  </div>
+</header>
 
-  <section>
-    <h2>会社概要</h2>
-    <dl>
-      <dt>会社名</dt><dd>株式会社ヒロメル</dd>
-      <dt>代表</dt><dd>玉手 志弥（たまて ゆきや）</dd>
-      <dt>事業</dt><dd>公式LINEのAI応対の構築・運用、営業メールの自動化、動画の切り抜き量産、AI導入支援</dd>
-      <dt>関連会社</dt><dd><a href="https://soiwedding.com/" rel="noopener">株式会社SOI</a>（写真・映像制作。同じ代表が運営しています）</dd>
-      <dt>お問い合わせ</dt><dd><a href="mailto:contact@hiromeru-inc.com">contact@hiromeru-inc.com</a></dd>
-    </dl>
-  </section>
+<section id="services"><div class="wrap">
+  <div class="kicker">SERVICES</div>
+  <h2>4つのサービス</h2>
+  <p class="sub">どれも「作って終わり」ではなく、運用まで一式でお引き受けします。まず現状を伺い、内容に応じてお見積りします。</p>
+  <div class="cards">
+    <div class="card">
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H8l-5 3V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></div>
+      <h3>公式LINEのAI応対</h3>
+      <p>LINEやメールに届いた問い合わせにAIが24時間一次対応し、予約の受付・変更・リマインドまで自動化します。答えは御社のサイトや案内に書いてある事実だけ。判断が要るものは、整理した状態で担当者に渡します。</p>
+      <div class="demo"><div class="lbl">こう動きます</div>お客様「駐車場はありますか」→ AI「店舗前に2台分ございます。満車の場合は隣接のコインパーキングをご案内しています」→ 予約の受付へ</div>
+    </div>
+    <div class="card">
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7cb8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+      <h3>営業メールの自動化</h3>
+      <p>宛先の収集から、相手の会社ごとに内容を差し込んだ文面の作成、送信、返信の検知までを一式で自動化します。返信が来た文面と来なかった文面の差を記録し、書き方を更新し続けます。二重送信の防止と配信停止の管理も仕組みに含みます。</p>
+      <div class="demo mail"><div class="lbl">こう動きます</div><div class="hd">宛先: 〇〇工務店 様　｜　件名: 「見積もり後に連絡が途切れる」を減らす案</div>〇〇工務店様の、<span class="hl">自然素材の注文住宅を子育て世帯向けに</span>提案されているご案内を拝見しました。見積もり後の…（会社ごとに自動で書き分け）</div>
+    </div>
+    <div class="card">
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffb86b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="m10 9 5 3-5 3z"/></svg></div>
+      <h3>動画の切り抜き量産</h3>
+      <p>お手持ちの長尺動画（YouTube・セミナー・配信など）から見どころを選び、縦型のショート動画に編集して毎日1本ずつお届けします。TikTok・Instagramリール・YouTubeショートへ同じ素材から展開します。</p>
+      <div class="demo"><div class="lbl">こう動きます</div>
+        <div class="shorts"><div class="short"><span>#01</span><i class="play"></i></div><div class="short"><span>#02</span><i class="play"></i></div><div class="short"><span>#03</span><i class="play"></i></div></div>
+        <div style="margin-top:8px;color:var(--muted)">1本の60分セミナー → 要点テロップ付きの60秒 × 毎日1本</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5.2L20 8l-4 3.9.9 5.6L12 14.8 7.1 17.5 8 11.9 4 8l5.6-.8z"/></svg></div>
+      <h3>AI導入支援</h3>
+      <p>「どこがAIで自動化できて、どこは人がやるべきか」を業務を伺ったうえで整理し、日々の事務作業（返信の下書き、日報、集計など）の自動化を、運用まで含めてご支援します。</p>
+      <div class="demo"><div class="lbl">こう動きます</div>業務の棚卸し → 自動化する所・人が残る所の線引き → 小さく作って毎日回す → 効いた所から広げる</div>
+    </div>
+  </div>
+</div></section>
 
-  <section>
-    <h2>お問い合わせ</h2>
-    <p>ご相談は上記メールアドレスへお送りください。当社からお送りしたご案内が不要な場合は、そのメールに「案内不要」とご返信いただければ、以後お送りしません。</p>
-  </section>
+<section><div class="wrap">
+  <div class="kicker">WHY</div>
+  <h2>ヒロメルの考え方</h2>
+  <div class="why">
+    <div><b>売り物を自分たちで毎日使う</b><p>公式LINEのAI応対も、営業メールの自動化も、切り抜きの量産も、まず自社の業務で回しています。うまくいっていない部分も含めて、実物をお見せします。</p></div>
+    <div><b>既存の導線を壊さない</b><p>LINE、予約システム、Webサイトは今のまま。会話や作業の部分だけをAIに置き換えるので、切り替えの負担がありません。</p></div>
+    <div><b>数字を約束しない</b><p>返信率や再生数を先に約束することはしません。運用して出た実測値だけをお伝えし、次の一手を一緒に決めます。</p></div>
+  </div>
+</div></section>
 
-  <footer>© 株式会社ヒロメル</footer>
-</div>
+<section id="flow"><div class="wrap">
+  <div class="kicker">FLOW</div>
+  <h2>進め方</h2>
+  <div class="flow">
+    <div class="step"><h3>現状を伺う</h3><p>オンラインで30分ほど。いまの問い合わせ・営業・発信の流れと、手が回っていない所を教えてください。</p></div>
+    <div class="step"><h3>実例を作ってお見せする</h3><p>御社のサイトや資料をもとに、AIの返答例・メールの文面・切り抜きの案などを先に作ります。ここまで費用はかかりません。</p></div>
+    <div class="step"><h3>小さく始めて、毎日回す</h3><p>効く所から導入し、運用しながら調整します。数字は実測値でご報告します。</p></div>
+  </div>
+</div></section>
+
+<section id="company"><div class="wrap">
+  <div class="kicker">COMPANY</div>
+  <h2>会社概要</h2>
+  <dl>
+    <dt>会社名</dt><dd>株式会社ヒロメル</dd>
+    <dt>代表</dt><dd>玉手 志弥（たまて ゆきや）</dd>
+    <dt>事業内容</dt><dd>公式LINEのAI応対の構築・運用、営業メールの自動化、動画の切り抜き量産、AI導入支援</dd>
+    <dt>関連会社</dt><dd><a href="https://soiwedding.com/" rel="noopener">株式会社SOI</a>（写真・映像制作。同じ代表が運営しています）</dd>
+    <dt>お問い合わせ</dt><dd><a href="mailto:contact@hiromeru-inc.com">contact@hiromeru-inc.com</a></dd>
+  </dl>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2>まず、実例をお見せします</h2>
+    <p>御社のサイトを拝見して、AIの返答例や文面の案を先に作ります。メール1通で構いません。</p>
+    <a class="cta" href="mailto:contact@hiromeru-inc.com?subject=%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B">contact@hiromeru-inc.com にメールする</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© 株式会社ヒロメル　｜　当社からお送りしたご案内が不要な場合は、そのメールに「案内不要」とご返信いただければ、以後お送りしません。</div></footer>
 </body>
 </html>
