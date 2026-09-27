@@ -27,14 +27,18 @@
   nav .links a{color:var(--muted)}
   @media (max-width:640px){nav .links{display:none}}
   /* hero */
-  .hero{position:relative;overflow:hidden;padding:88px 0 72px}
+  .hero{position:relative;overflow:hidden;padding:110px 0 96px;min-height:600px;display:flex;align-items:center;
+    background:#0b1020 url("assets/hero.jpg") center right/cover no-repeat}
   .hero::before{content:"";position:absolute;inset:0;background:
-    radial-gradient(600px 300px at 15% 10%,rgba(94,234,212,.18),transparent 60%),
-    radial-gradient(700px 360px at 90% 30%,rgba(124,184,255,.16),transparent 60%);
+    linear-gradient(90deg,rgba(11,16,32,.96) 0%,rgba(11,16,32,.88) 38%,rgba(11,16,32,.35) 68%,rgba(11,16,32,.15) 100%),
+    linear-gradient(180deg,rgba(11,16,32,.2),rgba(15,20,32,1) 100%);
     pointer-events:none}
+  @media (max-width:860px){.hero{background-position:72% center;min-height:0;padding:80px 0 64px}.hero::before{background:linear-gradient(180deg,rgba(11,16,32,.55),rgba(11,16,32,.92) 55%,rgba(15,20,32,1))}}
+  .showcase{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  @media (max-width:860px){.showcase{grid-template-columns:1fr}}
   .grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(60% 60% at 50% 30%,#000 30%,transparent 100%);opacity:.6;pointer-events:none}
-  .hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-  @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+  .hero .wrap{position:relative;width:100%}
+  .hero .inner{max-width:560px}
   .eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;color:var(--accent);font-weight:700;margin-bottom:14px}
   h1{font-size:clamp(30px,4.6vw,48px);line-height:1.3;margin:0 0 18px;font-weight:900;letter-spacing:.01em}
   h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -114,7 +118,7 @@
 <header class="hero">
   <div class="grid-bg"></div>
   <div class="wrap">
-    <div>
+    <div class="inner">
       <span class="eyebrow">AI × 業務自動化</span>
       <h1>人手が回らない仕事を、<br><em>AIで毎日回る仕組み</em>にする。</h1>
       <p class="lead">問い合わせへの返信、新規開拓のメール、動画の投稿。「大事なのに後回しになる仕事」を、AIが24時間こなす形に作り替えます。すべて自社の業務で毎日運用し、その実物をそのままお渡しします。</p>
@@ -125,7 +129,16 @@
         <div class="stat"><b>人が判断する所は残す</b>AIは一次対応と下ごしらえ</div>
       </div>
     </div>
-    <div>
+  </div>
+</header>
+<section><div class="wrap showcase">
+  <div>
+    <div class="kicker">LIVE DEMO</div>
+    <h2>深夜23時の予約変更も、<br>朝には片づいている。</h2>
+    <p class="sub" style="margin-bottom:14px">これは当社が自社で毎日動かしている公式LINEのAI応対の実例です。お客様の質問にはサイトや案内に書いてある事実だけで答え、予約表を更新し、担当者には整理された結果だけが届きます。</p>
+    <p class="sub">御社のLINEでも、同じ形をまず無料の返答例からお見せします。</p>
+  </div>
+  <div>
       <div class="phone"><div class="screen">
         <div class="bar"><span class="av"></span>公式LINE<small>23:41</small></div>
         <div class="chat">
@@ -138,9 +151,9 @@
         <div class="foot">メッセージを入力</div>
       </div></div>
       <p class="caption">営業時間外でも、AIが答えて予約表まで更新。担当者には整理された結果だけ届きます。</p>
-    </div>
   </div>
-</header>
+</div></section>
+
 
 <section id="services"><div class="wrap">
   <div class="kicker">SERVICES</div>
