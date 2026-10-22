@@ -38,7 +38,7 @@
   .hero{padding:84px 0 72px;background:
     radial-gradient(520px 380px at 88% 28%,rgba(214,25,53,.07),transparent 70%),
     linear-gradient(180deg,#fff 0%,var(--bg2) 100%)}
-  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
   @media (max-width:860px){.hero{padding:56px 0 48px}.hero .wrap{grid-template-columns:1fr;gap:32px}}
   .eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;color:var(--red);font-weight:700;margin-bottom:14px}
   h1{font-size:clamp(30px,3.9vw,48px);line-height:1.25;margin:0 0 20px;font-weight:900;letter-spacing:.01em;word-break:keep-all;overflow-wrap:normal}
@@ -56,9 +56,11 @@
   .services-inline{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:14px;color:var(--muted);font-weight:500}
   .services-inline span::before{content:"";display:inline-block;width:8px;height:8px;background:var(--red);border-radius:2px;margin-right:8px;vertical-align:1px}
   .hero-visual{display:flex;justify-content:center;align-items:center}
+  .hero-visual picture{display:block;width:100%;max-width:600px}
+  .card .art picture{display:block;width:100%;height:100%}
   .hero-visual img.logo-fallback{width:min(320px,70vw);filter:drop-shadow(0 18px 40px rgba(214,25,53,.18))}
-  .hero-visual img.kv{width:100%;max-width:560px;aspect-ratio:4/3;object-fit:cover;border-radius:20px;box-shadow:0 24px 60px rgba(36,35,38,.14);background:var(--bg2)}
-  @media (max-width:860px){.hero-visual img.kv{max-width:100%;aspect-ratio:16/10}}
+  .hero-visual img.kv{width:100%;max-width:600px;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:20px;box-shadow:0 24px 60px rgba(36,35,38,.14);background:var(--bg2)}
+  @media (max-width:860px){.hero-visual img.kv{max-width:100%}}
   /* sections */
   section{padding:76px 0;border-top:1px solid var(--line)}
   section.alt{background:var(--bg2)}
@@ -87,8 +89,8 @@
   @media (max-width:760px){.cards{grid-template-columns:1fr}}
   .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
   .card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--red)}
-  .card .art{margin:0 0 4px;border-radius:12px;overflow:hidden;background:var(--bg2);border:1px solid var(--line);aspect-ratio:16/9}
-  .card .art img{width:100%;height:100%;object-fit:cover}
+  .card .art{margin:0 0 4px;border-radius:12px;overflow:hidden;background:var(--bg2);border:1px solid var(--line);aspect-ratio:3/2}
+  .card .art img{width:100%;height:100%;object-fit:cover;display:block}
   .card .role{font-size:12px;letter-spacing:.14em;color:var(--red);font-weight:700}
   .card h3{margin:0;font-size:20px;font-weight:900}
   .card p{margin:0;color:var(--muted);font-size:15px}
@@ -151,7 +153,7 @@
       <a class="cta" href="https://lin.ee/5yEYApJ" target="_blank" rel="noopener">LINEで相談する</a><a class="cta mail" href="mailto:contact@hiromeru-inc.com?subject=%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B">メールで相談する</a>
       <div class="services-inline"><span>営業メールの自動化</span><span>公式LINEのAI応対</span><span>動画の切り抜き</span><span>業務へのAI導入支援</span></div>
     </div>
-    <div class="hero-visual"><!-- メインビジュアル(Codex生成の確定ファイルが来たら <img class="kv" src="assets/kv-main.png" alt="..."> に差し替え) --><img class="logo-fallback" src="assets/hiromeru-logo.png" alt="株式会社ヒロメル ロゴ"></div>
+    <div class="hero-visual"><picture><source type="image/webp" srcset="assets/hero-expansion-768.webp 768w, assets/hero-expansion.webp 1536w" sizes="(max-width:860px) 100vw, 50vw"><img class="kv" src="assets/hero-expansion.jpg" width="1536" height="1024" alt="起点から大きく広がる赤いリボンのイメージ。強みが世の中に広がっていく様子" fetchpriority="high" decoding="async"></picture></div>
   </div>
 </header>
 
@@ -161,21 +163,21 @@
   <p class="sub">営業の機会づくり、問い合わせへの対応、発信、日々の業務。この4つをAIで支え、「作って終わり」ではなく運用まで一式でお引き受けします。まず現状を伺い、内容に応じてお見積りします。</p>
   <div class="cards">
     <div class="card">
-      <!-- 画像枠: <figure class="art"><img src="assets/service-sales-mail.png" alt="..."></figure> -->
+      <figure class="art"><picture><source type="image/webp" srcset="assets/service-email-768.webp 768w, assets/service-email.webp 1536w" sizes="(max-width:760px) 100vw, 50vw"><img src="assets/service-email.jpg" width="1536" height="1024" alt="ノートパソコンから会社ごとに整えたメールが次々に送られていくイメージ" loading="lazy" decoding="async"></picture></figure>
       <div class="role">営業の機会づくり</div>
       <h3>営業メールの自動化</h3>
       <p>宛先の収集から、相手の会社ごとに内容を差し込んだ文面の作成、送信、返信の検知までを一式で自動化します。返信が来た文面と来なかった文面の差を記録し、書き方を更新し続けます。二重送信の防止と配信停止の管理も仕組みに含みます。</p>
       <div class="demo mail"><div class="lbl">こう動きます</div><div class="hd">宛先: 〇〇工務店 様　｜　件名: 「見積もり後に連絡が途切れる」を減らす案</div>〇〇工務店様の、<span class="hl">自然素材の注文住宅を子育て世帯向けに</span>提案されているご案内を拝見しました。見積もり後の…（会社ごとに自動で書き分け）</div>
     </div>
     <div class="card">
-      <!-- 画像枠: <figure class="art"><img src="assets/service-line-ai.png" alt="..."></figure> -->
+      <figure class="art"><picture><source type="image/webp" srcset="assets/service-line-768.webp 768w, assets/service-line.webp 1536w" sizes="(max-width:760px) 100vw, 50vw"><img src="assets/service-line.jpg" width="1536" height="1024" alt="スマートフォンのチャット画面でAIが問い合わせに答え、予約へつなぐイメージ" loading="lazy" decoding="async"></picture></figure>
       <div class="role">問い合わせへの対応</div>
       <h3>公式LINEのAI応対</h3>
       <p>LINEやメールに届いた問い合わせにAIが24時間一次対応し、予約の受付・変更・リマインドまで自動化します。答えは御社のサイトや案内に書いてある事実だけ。判断が要るものは、整理した状態で担当者に渡します。</p>
       <div class="demo"><div class="lbl">こう動きます</div>お客様「駐車場はありますか」→ AI「店舗前に2台分ございます。満車の場合は隣接のコインパーキングをご案内しています」→ 予約の受付へ</div>
     </div>
     <div class="card">
-      <!-- 画像枠: <figure class="art"><img src="assets/service-kirinuki.png" alt="..."></figure> -->
+      <figure class="art"><picture><source type="image/webp" srcset="assets/service-video-768.webp 768w, assets/service-video.webp 1536w" sizes="(max-width:760px) 100vw, 50vw"><img src="assets/service-video.jpg" width="1536" height="1024" alt="長い動画から縦型のショート動画が切り出されていくイメージ" loading="lazy" decoding="async"></picture></figure>
       <div class="role">発信</div>
       <h3>動画の切り抜き</h3>
       <p>お手持ちの長尺動画（YouTube・セミナー・配信など）から見どころを選び、縦型のショート動画に編集して毎日1本ずつお届けします。TikTok・Instagramリール・YouTubeショートへ同じ素材から展開します。</p>
@@ -185,7 +187,7 @@
       </div>
     </div>
     <div class="card">
-      <!-- 画像枠: <figure class="art"><img src="assets/service-ai-support.png" alt="..."></figure> -->
+      <figure class="art"><picture><source type="image/webp" srcset="assets/service-ai-768.webp 768w, assets/service-ai.webp 1536w" sizes="(max-width:760px) 100vw, 50vw"><img src="assets/service-ai.jpg" width="1536" height="1024" alt="日々の事務作業がAIで整理され、人が判断する所だけ残るイメージ" loading="lazy" decoding="async"></picture></figure>
       <div class="role">日々の業務</div>
       <h3>業務へのAI導入支援</h3>
       <p>「どこがAIで自動化できて、どこは人がやるべきか」を業務を伺ったうえで整理し、日々の事務作業（返信の下書き、日報、集計など）の自動化を、運用まで含めてご支援します。</p>
