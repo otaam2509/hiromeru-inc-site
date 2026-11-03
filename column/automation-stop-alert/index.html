@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja"><head>
+  <meta name="msvalidate.01" content="2CEEE1AB3468FF6B339F1006A1F6DBF5">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="FjSLVmfiquUaNdXIpQSnxzV__6p9uMF0jCkCXfR2QVA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <title>AI自動化の停止に気づくために、警告を別の通知へ切り出した話｜株式会社ヒロメル</title>
+  <meta name="description" content="社内の連絡整理ツールで、一覧の警告だけでは停止に気づけなかった経験から、AIの処理を待たずに異常を知らせる経路を追加した記録です。">
+  <link rel="canonical" href="https://hiromeru-inc.com/column/automation-stop-alert/">
+  <meta property="og:title" content="AI自動化の停止に気づくために、警告を別の通知へ切り出した話｜株式会社ヒロメル">
+  <meta property="og:description" content="社内の連絡整理ツールで、一覧の警告だけでは停止に気づけなかった経験から、AIの処理を待たずに異常を知らせる経路を追加した記録です。">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://hiromeru-inc.com/column/automation-stop-alert/">
+  <meta property="og:image" content="https://hiromeru-inc.com/assets/og-image-v2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="800">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/assets/hiromeru-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site-20261103.css">
+  <link rel="stylesheet" href="/assets/creative-20261103.css">
+  <link rel="stylesheet" href="/assets/content-20261103.css?v=columns6">
+  <script src="/assets/site-20261103.js" defer></script>
+
+<link rel="stylesheet" href="/assets/notes-20261103.css"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://hiromeru-inc.com/#organization", "name": "株式会社ヒロメル", "url": "https://hiromeru-inc.com/", "logo": "https://hiromeru-inc.com/assets/hiromeru-logo.png", "email": "contact@hiromeru-inc.com", "telephone": "+81-80-6051-1363", "address": {"@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "東京都", "addressLocality": "品川区", "streetAddress": "戸越5-18-16-2F"}, "description": "公式LINEのAI応対、営業メールの自動化、動画の切り抜き、業務へのAI導入を支援します。"}, {"@type": "BlogPosting", "@id": "https://hiromeru-inc.com/column/automation-stop-alert/#article", "headline": "AI自動化の停止に気づくために、警告を別の通知へ切り出した話", "description": "社内の連絡整理ツールで、一覧の警告だけでは停止に気づけなかった経験から、AIの処理を待たずに異常を知らせる経路を追加した記録です。", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "ja", "mainEntityOfPage": "https://hiromeru-inc.com/column/automation-stop-alert/", "author": {"@type": "Organization", "name": "株式会社ヒロメル", "url": "https://hiromeru-inc.com/#company"}, "publisher": {"@id": "https://hiromeru-inc.com/#organization"}, "image": "https://hiromeru-inc.com/assets/og-image-v2.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hiromeru-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://hiromeru-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "AI自動化の停止に気づくために、警告を別の通知へ切り出した話", "item": "https://hiromeru-inc.com/column/automation-stop-alert/"}]}]}</script></head><body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/#top" aria-label="株式会社ヒロメル トップへ"><span class="brand-mark"><img src="/assets/hiromeru-logo.png" width="1254" height="1254" alt=""></span><span class="brand-name">HIROMERU<span>株式会社ヒロメル</span></span></a>
+    <nav class="desktop-nav" aria-label="メインメニュー"><a href="/#services">サービス</a><a href="/#approach">私たちの考え方</a><a href="/column/">コラム</a><a href="/#company">会社情報</a></nav>
+    <a class="header-contact" href="/#contact">相談する <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span></button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="モバイルメニュー" hidden><a href="/#services">サービス <span>01</span></a><a href="/#approach">私たちの考え方 <span>02</span></a><a href="/#flow">導入の流れ <span>03</span></a><a href="/#company">会社情報 <span>04</span></a><a href="/column/">コラム <span>05</span></a><a href="/#contact">お問い合わせ <span>↗</span></a></nav>
+</header>
+<main id="main" class="notes-main"><header class="notes-hero"><div class="notes-shell"><p class="notes-crumb"><a href="/">ホーム</a> / <a href="/column/">コラム</a></p><p class="eyebrow">COLUMN / 業務自動化 / 2026-11-03</p><h1>AI自動化の停止に気づくために、警告を別の通知へ切り出した話</h1><p>社内の連絡整理ツールで、一覧の警告だけでは停止に気づけなかった経験から、AIの処理を待たずに異常を知らせる経路を追加した記録です。</p><p class="notes-credit">制作・編集：株式会社ヒロメル</p></div></header><section class="notes-content"><div class="notes-shell"><nav class="notes-toc" aria-label="目次"><b>この記事の内容</b><ul><li><a href="#s1">一覧に警告があっても、一覧を開かなければ見えない</a></li><li><a href="#s2">異常の通知は、AIの処理を待たずに送る</a></li><li><a href="#s3">通知を追加したことと、復旧したことは別</a></li></ul></nav><article><p class="article-lead">社内の連絡整理ツールが情報を取得できなくなっていたのに、担当者がその停止に気づけないことがありました。警告は出していました。ただし、場所は要対応リストの冒頭だけでした。</p>
+<p>2026年11月3日、この見せ方を変更しました。ログアウトや記録停止などの異常を検知したときは、通常の一覧とは別に、社内の連絡先へ知らせる処理を追加しています。</p>
+<h2 id="s1">一覧に警告があっても、一覧を開かなければ見えない</h2>
+<p>このツールは、届いた連絡から返信や確認が必要なものを整理するための社内用の仕組みです。運用記録には、別のPCでLINEにログインした後、記録を取る側がログアウトしていたことが残っています。</p>
+<p>要対応リストには異常を表示していましたが、その表示だけでは停止に気づけませんでした。「状態を記録すること」と「担当者が異常を知ること」の間に、リストを開くという作業が残っていました。</p>
+<p>以前の<a href="/notes/ai-workflow-notification/">取得・判断・通知を分け直した改修</a>は、処理を進めるための変更でした。今回は、情報の取得が止まったときに、その状態を伝える経路の見直しです。</p>
+<h2 id="s2">異常の通知は、AIの処理を待たずに送る</h2>
+<p>追加した処理では、読み取り側の状態に出ている警告から、ログアウト、記録停止、未起動、エラーに関するものを取り出します。それを定型のプログラムが社内の確認先へ通知します。</p>
+<div class="article-process" aria-label="異常を知らせる処理の流れ"><span>状態を確認</span><span aria-hidden="true">→</span><span>異常を抽出</span><span aria-hidden="true">→</span><span>担当者へ通知</span></div>
+<p>この通知を出すために、AIが連絡内容を読み終えるのを待つ構成にはしていません。通常の要対応整理と、動いているかどうかの確認を分けました。</p>
+<p>同じ警告を毎回送り続けないため、警告ごとの送信時刻を記録し、再通知には3時間の間隔を設けています。これは今回の設定値であり、すべての業務に適した間隔という意味ではありません。</p>
+<h2 id="s3">通知を追加したことと、復旧したことは別</h2>
+<p>異常が届いても、ログインのやり直しなど、人による対応が必要な場合があります。この変更だけで停止を防げるわけではありません。</p>
+<p>確認できたのは、停止を見落とした運用記録と、それを受けた通知処理の追加です。変更後に異常へ気づくまでの時間がどれだけ短くなったかは、この記事では集計していません。</p>
+<p>ヒロメルでは、AIが返す内容だけでなく、入力が届かないときや処理が進まないときに、誰が何を確認するかも含めて業務を整理します。</p>
+<p><a href="/services/ai-workflow/">業務へのAI導入・自動化支援を見る →</a></p>
+<p class="article-note">社内の連絡整理ツールに関する2026年11月の運用記録です。公式LINEの顧客導入事例ではありません。現在の稼働率や復旧時間を示す記事ではありません。</p>
+</article><aside class="notes-author"><b>株式会社ヒロメルのコラム</b><p>自社の作業・判断・検証記録をもとに制作しています。記録で確認できる内容と、まだ検証していない成果を区別して紹介します。</p><a href="/#company">会社情報</a> / <a href="mailto:contact@hiromeru-inc.com">内容に関するお問い合わせ</a></aside><aside class="related-columns"><h2>あわせて読む</h2><a href="/notes/ai-workflow-notification/">AI業務自動化の運用記録｜通知が届かず処理を分け直した話 <span aria-hidden="true">↗</span></a><a href="/column/ai-task-list-design/">AIのタスクリストを、1件50字・最大10件に見直した話 <span aria-hidden="true">↗</span></a><a href="/column/">コラム一覧へ →</a></aside><div class="notes-cta"><h2>今ある仕事から、AIの使いどころを。</h2><p>公式LINEのAI応対や業務へのAI導入について、ご相談いただけます。</p><a href="https://lin.ee/5yEYApJ">LINEで相談する →</a><a href="/services/ai-workflow/">業務へのAI導入支援を見る →</a></div></div></section></main><footer class="site-footer"><div class="shell footer-top"><a class="brand footer-brand" href="/#top" aria-label="株式会社ヒロメル トップへ"><span class="brand-mark"><img src="/assets/hiromeru-logo.png" width="1254" height="1254" alt=""></span><span class="brand-name">HIROMERU<span>株式会社ヒロメル</span></span></a><a class="back-top" href="/#top">BACK TO TOP <span aria-hidden="true">↑</span></a></div><nav class="shell footer-pages" aria-label="関連ページ"><a href="/column/">コラム</a><a href="/services/line-ai/">公式LINEのAI連携</a><a href="/services/ai-workflow/">業務へのAI導入支援</a></nav><div class="shell footer-bottom"><span>© HIROMERU INC.</span><span>その強みを、世の中に広めるために。</span></div></footer></body></html>

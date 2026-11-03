@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja"><head>
+  <meta name="msvalidate.01" content="2CEEE1AB3468FF6B339F1006A1F6DBF5">
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="FjSLVmfiquUaNdXIpQSnxzV__6p9uMF0jCkCXfR2QVA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <title>AIのメール返信は、下書きまで。送信機能を分けた社内の設計｜株式会社ヒロメル</title>
+  <meta name="description" content="複数メールアドレスの返信支援で、候補を絞り、受信したアカウントの下書きへ保存する設計。AIによる文面作成と、人が確認して送る工程を分けています。">
+  <link rel="canonical" href="https://hiromeru-inc.com/column/ai-email-draft-review/">
+  <meta property="og:title" content="AIのメール返信は、下書きまで。送信機能を分けた社内の設計｜株式会社ヒロメル">
+  <meta property="og:description" content="複数メールアドレスの返信支援で、候補を絞り、受信したアカウントの下書きへ保存する設計。AIによる文面作成と、人が確認して送る工程を分けています。">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://hiromeru-inc.com/column/ai-email-draft-review/">
+  <meta property="og:image" content="https://hiromeru-inc.com/assets/og-image-v2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="800">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/assets/hiromeru-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site-20261103.css">
+  <link rel="stylesheet" href="/assets/creative-20261103.css">
+  <link rel="stylesheet" href="/assets/content-20261103.css?v=columns6">
+  <script src="/assets/site-20261103.js" defer></script>
+
+<link rel="stylesheet" href="/assets/notes-20261103.css"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://hiromeru-inc.com/#organization", "name": "株式会社ヒロメル", "url": "https://hiromeru-inc.com/", "logo": "https://hiromeru-inc.com/assets/hiromeru-logo.png", "email": "contact@hiromeru-inc.com", "telephone": "+81-80-6051-1363", "address": {"@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "東京都", "addressLocality": "品川区", "streetAddress": "戸越5-18-16-2F"}, "description": "公式LINEのAI応対、営業メールの自動化、動画の切り抜き、業務へのAI導入を支援します。"}, {"@type": "BlogPosting", "@id": "https://hiromeru-inc.com/column/ai-email-draft-review/#article", "headline": "AIのメール返信は、下書きまで。送信機能を分けた社内の設計", "description": "複数メールアドレスの返信支援で、候補を絞り、受信したアカウントの下書きへ保存する設計。AIによる文面作成と、人が確認して送る工程を分けています。", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "ja", "mainEntityOfPage": "https://hiromeru-inc.com/column/ai-email-draft-review/", "author": {"@type": "Organization", "name": "株式会社ヒロメル", "url": "https://hiromeru-inc.com/#company"}, "publisher": {"@id": "https://hiromeru-inc.com/#organization"}, "image": "https://hiromeru-inc.com/assets/og-image-v2.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hiromeru-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "コラム", "item": "https://hiromeru-inc.com/column/"}, {"@type": "ListItem", "position": 3, "name": "AIのメール返信は、下書きまで。送信機能を分けた社内の設計", "item": "https://hiromeru-inc.com/column/ai-email-draft-review/"}]}]}</script></head><body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/#top" aria-label="株式会社ヒロメル トップへ"><span class="brand-mark"><img src="/assets/hiromeru-logo.png" width="1254" height="1254" alt=""></span><span class="brand-name">HIROMERU<span>株式会社ヒロメル</span></span></a>
+    <nav class="desktop-nav" aria-label="メインメニュー"><a href="/#services">サービス</a><a href="/#approach">私たちの考え方</a><a href="/column/">コラム</a><a href="/#company">会社情報</a></nav>
+    <a class="header-contact" href="/#contact">相談する <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span></button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="モバイルメニュー" hidden><a href="/#services">サービス <span>01</span></a><a href="/#approach">私たちの考え方 <span>02</span></a><a href="/#flow">導入の流れ <span>03</span></a><a href="/#company">会社情報 <span>04</span></a><a href="/column/">コラム <span>05</span></a><a href="/#contact">お問い合わせ <span>↗</span></a></nav>
+</header>
+<main id="main" class="notes-main"><header class="notes-hero"><div class="notes-shell"><p class="notes-crumb"><a href="/">ホーム</a> / <a href="/column/">コラム</a></p><p class="eyebrow">COLUMN / メール業務 / 2026-11-03</p><h1>AIのメール返信は、下書きまで。送信機能を分けた社内の設計</h1><p>複数メールアドレスの返信支援で、候補を絞り、受信したアカウントの下書きへ保存する設計。AIによる文面作成と、人が確認して送る工程を分けています。</p><p class="notes-credit">制作・編集：株式会社ヒロメル</p></div></header><section class="notes-content"><div class="notes-shell"><nav class="notes-toc" aria-label="目次"><b>この記事の内容</b><ul><li><a href="#s1">すべての受信メールに、下書きを作らない</a></li><li><a href="#s2">返信案は、受信したアカウントの下書きへ</a></li><li><a href="#s3">「自動送信しない」を、保存処理の役割として決める</a></li></ul></nav><article><p class="article-lead">ヒロメルを含む社内の複数メールアドレスでは、AIが作る返信案を、受信したアカウントの下書きフォルダに保存する仕組みを使っています。この下書き保存プログラムには、メールを送信する機能を持たせていません。</p>
+<p>AIが返信候補を考える工程と、担当者が内容を確認して送る工程を分けた設計です。今回は、文面の作り方より前に置いている候補の絞り込みと、保存先の扱いを紹介します。</p>
+<h2 id="s1">すべての受信メールに、下書きを作らない</h2>
+<p>この運用では、直近の受信メールから候補を取り出し、自動通知や一斉配信、返信済み、下書き済みのものを除いています。さらに、2026年10月の運用指示で、担当者本人宛ての連絡に絞る条件を設けました。</p>
+<div class="article-table"><table><thead><tr><th scope="col">確認すること</th><th scope="col">今回の扱い</th></tr></thead><tbody><tr><td>自動通知・一斉配信か</td><td>送信元やメールの付加情報から候補を絞る。「要返信」などの件名には例外条件を設ける</td></tr><tr><td>すでに返信しているか</td><td>送信済みメールと元の受信メールの関係、宛先、件名、時刻を確認する</td></tr><tr><td>下書きを作っているか</td><td>下書きフォルダと判定の記録を確認し、同じ候補を重ねて扱わない</td></tr><tr><td>誰への依頼か</td><td>件名や本文の冒頭に担当者名があるかを、今回の候補抽出の条件にする</td></tr></tbody></table></div>
+<p>担当者名で絞る方法には、名前の書かれていない依頼を拾えない可能性があります。この条件を一般的な正解とはせず、今回の社内運用で採用したルールとして扱っています。</p>
+<h2 id="s2">返信案は、受信したアカウントの下書きへ</h2>
+<p>複数のアドレスを使うときは、返信文だけでなく、どのアドレスから返すかも確認が必要です。この仕組みでは、対象メールを受けたアカウントの下書きフォルダへ保存します。</p>
+<p>保存するときには、元メールへの返信であることを示す情報も付けます。単に文章を別の場所へ出すだけでなく、担当者が普段使うメールの下書きとして確認できるようにしています。</p>
+<div class="article-process" aria-label="メール下書きの流れ"><span>候補を整理</span><span aria-hidden="true">→</span><span>AIが下書き</span><span aria-hidden="true">→</span><span>人が確認・送信</span></div>
+<h2 id="s3">「自動送信しない」を、保存処理の役割として決める</h2>
+<p>確認した実装では、下書きを保存する処理とコマンドはありますが、送信の処理はありません。AIへの文章の指示だけで送信を止めるのではなく、このプログラムの担当を読み取りと下書き保存に限っています。</p>
+<p>一方で、別の返信管理ツールでも同じ問い合わせを扱う場合があります。社内の運用メモには、下書き側と別の窓口の両方から返信しないよう注意する記載があります。送信機能を分けても、担当者の確認場所を整理する作業は残ります。</p>
+<p>この記事で紹介するのは、この役割分担と実装です。返信時間の短縮率や、作成した文面の正確さを測った結果ではありません。ヒロメルのAI導入支援では、こうした候補の選び方から、確認・送信の手順までを整理します。</p>
+<p><a href="/services/ai-workflow/">業務へのAI導入支援を見る →</a></p>
+<p class="article-note">社内のメール返信支援の設計記録です。営業メールを配信する別のプログラムとは役割が異なります。実際の受信文面、宛先、接続情報は掲載していません。</p>
+</article><aside class="notes-author"><b>株式会社ヒロメルのコラム</b><p>自社の作業・判断・検証記録をもとに制作しています。記録で確認できる内容と、まだ検証していない成果を区別して紹介します。</p><a href="/#company">会社情報</a> / <a href="mailto:contact@hiromeru-inc.com">内容に関するお問い合わせ</a></aside><aside class="related-columns"><h2>あわせて読む</h2><a href="/column/sales-reply-pipeline/">営業メールの「返信あり」を、商談に数えない。自社の状態管理 <span aria-hidden="true">↗</span></a><a href="/column/ai-task-list-design/">AIのタスクリストを、1件50字・最大10件に見直した話 <span aria-hidden="true">↗</span></a><a href="/column/">コラム一覧へ →</a></aside><div class="notes-cta"><h2>今ある仕事から、AIの使いどころを。</h2><p>公式LINEのAI応対や業務へのAI導入について、ご相談いただけます。</p><a href="https://lin.ee/5yEYApJ">LINEで相談する →</a><a href="/services/ai-workflow/">業務へのAI導入支援を見る →</a></div></div></section></main><footer class="site-footer"><div class="shell footer-top"><a class="brand footer-brand" href="/#top" aria-label="株式会社ヒロメル トップへ"><span class="brand-mark"><img src="/assets/hiromeru-logo.png" width="1254" height="1254" alt=""></span><span class="brand-name">HIROMERU<span>株式会社ヒロメル</span></span></a><a class="back-top" href="/#top">BACK TO TOP <span aria-hidden="true">↑</span></a></div><nav class="shell footer-pages" aria-label="関連ページ"><a href="/column/">コラム</a><a href="/services/line-ai/">公式LINEのAI連携</a><a href="/services/ai-workflow/">業務へのAI導入支援</a></nav><div class="shell footer-bottom"><span>© HIROMERU INC.</span><span>その強みを、世の中に広めるために。</span></div></footer></body></html>

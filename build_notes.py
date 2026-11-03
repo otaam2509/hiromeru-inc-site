@@ -23,11 +23,18 @@ home = home_path.read_text()
 articles = json.loads((ROOT/'src/notes/articles.json').read_text())
 
 def card(a, level=2):
-    if a['visual']=='rule':
+    graphics={
+        'alert':'<span class="card-graphic graphic-alert" aria-hidden="true"><span class="graphic-tag">OPERATION</span><strong>止まったら、<br>知らせる。</strong><i>!</i></span>',
+        'draft':'<span class="card-graphic graphic-draft" aria-hidden="true"><span><small>AI</small><strong>下書き</strong></span><i>→</i><span><small>人</small><strong>確認・送信</strong></span></span>',
+        'matching':'<span class="card-graphic graphic-matching" aria-hidden="true"><span class="graphic-tag">同じ会社を、どう照合する？</span><strong>WEB <i>＋</i> MAIL <i>＋</i> 宛先</strong></span>',
+        'pipeline':'<span class="card-graphic graphic-pipeline" aria-hidden="true"><span class="graphic-tag">営業の状態を分ける</span><strong>返信 <i>≠</i> 商談</strong></span>'}
+    if a['visual'] in graphics:
+        visual=graphics[a['visual']]
+    elif a['visual']=='rule':
         visual='<span class="card-graphic graphic-rule" aria-hidden="true"><span>50<small>字 / 1件</small></span><i>×</i><span>10<small>件まで</small></span></span>'
     else:
         visual='<span class="card-graphic graphic-flow" aria-hidden="true"><span>取得</span><i>→</i><span>判断</span><i>→</i><span>通知</span></span>'
-    return f'<a class="column-card" href="{a["path"]}">{visual}<div class="column-card-body"><span class="card-meta"><span>{escape(a["category"])}</span><time datetime="{a["date"]}">{a["date"].replace("-", ".")}</time></span><h{level}>{escape(a["title"])}</h{level}><p>{escape(a["description"])}</p><span class="card-read">記事を読む <span aria-hidden="true">↗</span></span></div></a>'
+    return f'<a class="column-card" data-category="{escape(a["category"],quote=True)}" href="{a["path"]}">{visual}<div class="column-card-body"><span class="card-meta"><span>{escape(a["category"])}</span><time datetime="{a["date"]}">{a["date"].replace("-", ".")}</time></span><h{level}>{escape(a["title"])}</h{level}><p>{escape(a["description"])}</p><span class="card-read">記事を読む <span aria-hidden="true">↗</span></span></div></a>'
 
 home_columns='<section class="section home-columns" id="notes" aria-labelledby="notes-title"><div class="shell"><div class="column-section-head"><div><p class="eyebrow">COLUMN / ヒロメルのコラム</p><h2 id="notes-title">使って、気づいて、<br>仕事を変える。</h2></div><a class="text-link" href="/column/">コラムをすべて見る <span aria-hidden="true">↗</span></a></div><div class="column-grid">'+''.join(card(a,3) for a in articles[:2])+'</div></div></section>'
 home=re.sub(r'<!-- columns-home:start -->.*?<!-- columns-home:end -->','<!-- columns-home:start -->'+home_columns+'<!-- columns-home:end -->',home,flags=re.S)
@@ -66,8 +73,11 @@ for a in articles:
     path=a['path']
     body=(ROOT/'src/notes'/f"{a['slug']}.html").read_text()
     toc='<nav class="notes-toc" aria-label="目次"><b>この記事の内容</b><ul>'+''.join(f'<li><a href="#s{i+1}">{escape(t)}</a></li>' for i,t in enumerate(a['toc']))+'</ul></nav>'
-    related=''.join(f'<a href="{other["path"]}">{escape(other["title"])} <span aria-hidden="true">↗</span></a>' for other in articles if other['slug']!=a['slug'])
-    content=f'''<header class="notes-hero"><div class="notes-shell"><p class="notes-crumb"><a href="/">ホーム</a> / <a href="/column/">コラム</a></p><p class="eyebrow">COLUMN / {escape(a['category'])} / {a['date']}</p><h1>{escape(a['title'])}</h1><p>{escape(a['description'])}</p><p class="notes-credit">制作・編集：株式会社ヒロメル</p></div></header><section class="notes-content"><div class="notes-shell">{toc}<article>{body}</article><aside class="notes-author"><b>株式会社ヒロメルのコラム</b><p>自社の作業・判断・検証記録をもとに制作しています。記録で確認できる内容と、まだ検証していない成果を区別して紹介します。</p><a href="/#company">会社情報</a> / <a href="mailto:contact@hiromeru-inc.com">内容に関するお問い合わせ</a></aside><aside class="related-columns"><h2>あわせて読む</h2>{related}<a href="/column/">コラム一覧へ →</a></aside><div class="notes-cta"><h2>今ある仕事から、AIの使いどころを。</h2><p>公式LINEのAI応対や業務へのAI導入について、ご相談いただけます。</p><a href="https://lin.ee/5yEYApJ">LINEで相談する →</a><a href="{a['service']}">業務へのAI導入支援を見る →</a></div></div></section>'''
+    by_slug={other['slug']:other for other in articles}
+    related_articles=[by_slug[slug] for slug in a.get('related',[]) if slug!=a['slug']][:2]
+    related=''.join(f'<a href="{other["path"]}">{escape(other["title"])} <span aria-hidden="true">↗</span></a>' for other in related_articles)
+    service_label=escape(a.get('service_label','業務へのAI導入支援を見る'))
+    content=f'''<header class="notes-hero"><div class="notes-shell"><p class="notes-crumb"><a href="/">ホーム</a> / <a href="/column/">コラム</a></p><p class="eyebrow">COLUMN / {escape(a['category'])} / {a['date']}</p><h1>{escape(a['title'])}</h1><p>{escape(a['description'])}</p><p class="notes-credit">制作・編集：株式会社ヒロメル</p></div></header><section class="notes-content"><div class="notes-shell">{toc}<article>{body}</article><aside class="notes-author"><b>株式会社ヒロメルのコラム</b><p>自社の作業・判断・検証記録をもとに制作しています。記録で確認できる内容と、まだ検証していない成果を区別して紹介します。</p><a href="/#company">会社情報</a> / <a href="mailto:contact@hiromeru-inc.com">内容に関するお問い合わせ</a></aside><aside class="related-columns"><h2>あわせて読む</h2>{related}<a href="/column/">コラム一覧へ →</a></aside><div class="notes-cta"><h2>今ある仕事から、AIの使いどころを。</h2><p>公式LINEのAI応対や業務へのAI導入について、ご相談いただけます。</p><a href="https://lin.ee/5yEYApJ">LINEで相談する →</a><a href="{a['service']}">{service_label} →</a></div></div></section>'''
     page(path,a['title']+'｜株式会社ヒロメル',a['description'],content,[
         {'@type':'BlogPosting','@id':SITE+path+'#article','headline':a['title'],'description':a['description'],
          'datePublished':a['date'],'dateModified':a.get('updated',a['date']),'inLanguage':'ja','mainEntityOfPage':SITE+path,
@@ -75,8 +85,9 @@ for a in articles:
         {'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'ホーム','item':SITE+'/'},
           {'@type':'ListItem','position':2,'name':'コラム','item':SITE+'/column/'},{'@type':'ListItem','position':3,'name':a['title'],'item':SITE+path}]}])
     urls.append((path,a.get('updated',a['date'])))
-page('/column/','コラム｜AI導入・業務自動化の実践記録｜株式会社ヒロメル','ヒロメルが自社でAIを使い、業務を見直した記録。通知の設計やタスクリストの改善など、実際の作業から紹介します。',
-     '<header class="column-hero"><div class="shell"><p class="notes-crumb"><a href="/">ホーム</a> / コラム</p><div class="column-hero-grid"><div><p class="eyebrow">HIROMERU COLUMN</p><h1>使って、気づいて、<br><em>仕事を変える。</em></h1><p>AIを仕事に組み込んで、何が起きたか。<br>つまずきも、工夫も。自分たちの現場から。</p></div><div class="column-symbol" aria-hidden="true"><span>TRY.<br>LEARN.<br>UPDATE.</span><i>↗</i></div></div><nav class="column-topics" aria-label="コラムの案内"><a href="#articles">自社の運用記録 ↓</a><a href="/services/line-ai/">公式LINEのAI連携 ↗</a><a href="/services/ai-workflow/">業務へのAI導入 ↗</a></nav></div></header><section class="column-list" id="articles" aria-labelledby="articles-title"><div class="shell"><div class="column-list-heading"><h2 id="articles-title">実践から、ひとつずつ。</h2><p>'+str(len(articles))+' ARTICLES</p></div><div class="column-grid">'+''.join(card(a) for a in articles)+'</div><div class="column-editorial"><h2>ここに残すのは、自分たちで確かめたこと。</h2><p>実際に変えた手順や、作ったものをもとに書いています。社内での検証とお客様への導入事例、変更した設定と確認できた成果を分けてお伝えします。</p></div></div></section>',
+filters='<div class="column-filters" role="group" aria-label="記事をテーマで絞り込む" hidden><button type="button" data-filter="all" aria-pressed="true">すべて <span>'+str(len(articles))+'</span></button>'+''.join(f'<button type="button" data-filter="{category}" aria-pressed="false">{category} <span>{sum(a["category"]==category for a in articles)}</span></button>' for category in dict.fromkeys(a['category'] for a in articles))+'</div>'
+page('/column/','コラム｜AI導入・業務自動化の実践記録｜株式会社ヒロメル','ヒロメルが自社でAIを使い、業務を見直した記録。通知の設計、メール返信支援、営業メールの状態管理など、実際の作業から紹介します。',
+     '<header class="column-hero"><div class="shell"><p class="notes-crumb"><a href="/">ホーム</a> / コラム</p><div class="column-hero-grid"><div><p class="eyebrow">HIROMERU COLUMN</p><h1>使って、気づいて、<br><em>仕事を変える。</em></h1><p>AIを仕事に組み込んで、何が起きたか。<br>つまずきも、工夫も。自分たちの現場から。</p></div><div class="column-symbol" aria-hidden="true"><span>TRY.<br>LEARN.<br>UPDATE.</span><i>↗</i></div></div><nav class="column-topics" aria-label="コラムの案内"><a href="#articles">自社の運用記録 ↓</a><a href="/services/line-ai/">公式LINEのAI連携 ↗</a><a href="/services/ai-workflow/">業務へのAI導入 ↗</a></nav></div></header><section class="column-list" id="articles" aria-labelledby="articles-title"><div class="shell"><div class="column-list-heading"><h2 id="articles-title">実践から、ひとつずつ。</h2><p id="column-count" role="status" aria-live="polite">'+str(len(articles))+'件の記事</p></div>'+filters+'<div class="column-grid" id="column-results">'+''.join(card(a) for a in articles)+'</div><div class="column-editorial"><h2>ここに残すのは、自分たちで確かめたこと。</h2><p>実際に変えた手順や、作ったものをもとに書いています。社内での検証とお客様への導入事例、変更した設定と確認できた成果を分けてお伝えします。</p></div></div></section><script src="/assets/column-filter-20261103.js" defer></script>',
      [{'@type':'CollectionPage','@id':SITE+'/column/#collection','url':SITE+'/column/','name':'ヒロメルのコラム','publisher':{'@id':ORG['@id']},'mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'name':a['title'],'url':SITE+a['path']} for i,a in enumerate(articles)]}}])
 
 # Preserve the published article URL; move only the old index to the column hub.

@@ -1,17 +1,99 @@
 [
   {
+    "slug": "automation-stop-alert",
+    "title": "AI自動化の停止に気づくために、警告を別の通知へ切り出した話",
+    "description": "社内の連絡整理ツールで、一覧の警告だけでは停止に気づけなかった経験から、AIの処理を待たずに異常を知らせる経路を追加した記録です。",
+    "category": "業務自動化",
+    "visual": "alert",
+    "service": "/services/ai-workflow/",
+    "toc": [
+      "一覧に警告があっても、一覧を開かなければ見えない",
+      "異常の通知は、AIの処理を待たずに送る",
+      "通知を追加したことと、復旧したことは別"
+    ],
+    "related": [
+      "ai-workflow-notification",
+      "ai-task-list-design"
+    ],
+    "path": "/column/automation-stop-alert/",
+    "date": "2026-11-03"
+  },
+  {
+    "slug": "ai-email-draft-review",
+    "title": "AIのメール返信は、下書きまで。送信機能を分けた社内の設計",
+    "description": "複数メールアドレスの返信支援で、候補を絞り、受信したアカウントの下書きへ保存する設計。AIによる文面作成と、人が確認して送る工程を分けています。",
+    "category": "メール業務",
+    "visual": "draft",
+    "service": "/services/ai-workflow/",
+    "toc": [
+      "すべての受信メールに、下書きを作らない",
+      "返信案は、受信したアカウントの下書きへ",
+      "「自動送信しない」を、保存処理の役割として決める"
+    ],
+    "related": [
+      "sales-reply-pipeline",
+      "ai-task-list-design"
+    ],
+    "path": "/column/ai-email-draft-review/",
+    "date": "2026-11-03"
+  },
+  {
+    "slug": "sales-email-company-matching",
+    "title": "営業メールの重複対策。会社の照合を3つの情報でそろえた話",
+    "description": "送信済みの会社が候補に戻った原因は、サイトとメールで照合情報が違うこと。サイト・メールのドメインとアドレスから台帳を確認するようにした改修記録です。",
+    "category": "営業の自動化",
+    "visual": "matching",
+    "service": "/#service-email",
+    "service_label": "営業メールの自動化支援を見る",
+    "toc": [
+      "収集時と送信時で、同じ会社の見え方が違った",
+      "3つの情報から、同じ送信履歴を確認する",
+      "重複の確認と、送ってよいかの確認を分ける"
+    ],
+    "related": [
+      "sales-reply-pipeline",
+      "ai-email-draft-review"
+    ],
+    "path": "/column/sales-email-company-matching/",
+    "date": "2026-11-03"
+  },
+  {
+    "slug": "sales-reply-pipeline",
+    "title": "営業メールの「返信あり」を、商談に数えない。自社の状態管理",
+    "description": "返信の検出、返信の種類、アポ・商談・成約を分ける自社の営業管理。人が進めた商談状態を、自動同期で「返信あり」に戻さない条件を紹介します。",
+    "category": "営業の自動化",
+    "visual": "pipeline",
+    "service": "/#service-email",
+    "service_label": "営業メールの自動化支援を見る",
+    "toc": [
+      "返信の検出と、その後の進捗を分ける",
+      "人が付けた「商談」を、同期で「返信あり」に戻さない",
+      "文面の反応と、営業の成果を別々に見る"
+    ],
+    "related": [
+      "sales-email-company-matching",
+      "ai-email-draft-review"
+    ],
+    "path": "/column/sales-reply-pipeline/",
+    "date": "2026-11-03"
+  },
+  {
     "slug": "ai-task-list-design",
     "path": "/column/ai-task-list-design/",
     "title": "AIのタスクリストを、1件50字・最大10件に見直した話",
     "description": "多すぎる・長すぎるという社内の声から、AIが作る要対応リストの出力ルールを変更。載せる対象、文字数、件数を見直した2026年11月の運用記録です。",
     "date": "2026-11-03",
-    "category": "AIの業務活用",
+    "category": "業務自動化",
     "visual": "rule",
     "service": "/services/ai-workflow/",
     "toc": [
       "短くする前に、何を載せるかを変えた",
       "返信・予定・タスクで、情報の残し方を分けた",
       "確認できたのは、出力ルールを変えたこと"
+    ],
+    "related": [
+      "ai-email-draft-review",
+      "automation-stop-alert"
     ]
   },
   {
@@ -27,6 +109,10 @@
     "category": "業務自動化",
     "visual": "flow",
     "service": "/services/ai-workflow/",
-    "updated": "2026-11-03"
+    "updated": "2026-11-03",
+    "related": [
+      "automation-stop-alert",
+      "ai-task-list-design"
+    ]
   }
 ]
