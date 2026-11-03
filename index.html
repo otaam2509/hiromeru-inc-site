@@ -1,282 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>株式会社ヒロメル｜その強みを、世の中に広めるために。</title>
-<meta name="description" content="株式会社ヒロメルは、営業・顧客対応・発信をAIで仕組み化します。営業メールの自動化、公式LINEのAI応対、動画の切り抜き、業務へのAI導入支援。お客様の強みを伝える機会を増やし、届いた問い合わせに対応し、日々の仕事が続く仕組みを整えます。">
-<meta property="og:title" content="株式会社ヒロメル｜その強みを、世の中に広めるために。">
-<meta property="og:description" content="営業・顧客対応・発信を、AIで仕組み化。営業メールの自動化、公式LINEのAI応対、動画の切り抜き、業務へのAI導入支援。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://hiromeru-inc.com/">
-<meta property="og:image" content="https://hiromeru-inc.com/assets/og-image-v2.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="800">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/hiromeru-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --red:#D61935;--red-dark:#B5122B;--ink:#242326;--muted:#646168;--line:#E7E4E5;
-    --bg:#FFFFFF;--bg2:#FAF8F8;--red-tint:#FDEEF0;--line-green:#06C755;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased}
-  a{color:var(--red);text-decoration:none}
-  img{max-width:100%;height:auto;display:block}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-  /* nav */
-  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.04em;color:var(--ink);font-size:17px;white-space:nowrap;flex-shrink:0;min-width:0}
-  .brand img{width:36px;height:36px;flex-shrink:0}
-  nav .links{display:flex;gap:22px;font-size:14px;align-items:center;flex-shrink:0}
-  nav .links a{color:var(--muted);font-weight:500;white-space:nowrap}
-  nav .links a.line{color:#fff;background:var(--line-green);padding:9px 16px;border-radius:999px;font-weight:700;white-space:nowrap;flex-shrink:0}
-  @media (max-width:720px){nav .links a:not(.line){display:none}}
-  @media (max-width:420px){nav .wrap{height:60px}.brand{font-size:15px;gap:8px}.brand img{width:30px;height:30px}nav .links a.line{font-size:13px;padding:8px 13px}}
-  @media (max-width:340px){.brand span{display:none}}  /* 極端に狭い画面ではロゴだけ残す(375px未満の端末向けの保険) */
-  /* hero */
-  .hero{padding:84px 0 72px;background:
-    radial-gradient(520px 380px at 88% 28%,rgba(214,25,53,.07),transparent 70%),
-    linear-gradient(180deg,#fff 0%,var(--bg2) 100%)}
-  .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-  @media (max-width:860px){.hero{padding:56px 0 48px}.hero .wrap{grid-template-columns:1fr;gap:32px}}
-  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.18em;color:var(--red);font-weight:700;margin-bottom:14px}
-  h1{font-size:clamp(30px,3.9vw,48px);line-height:1.25;margin:0 0 20px;font-weight:900;letter-spacing:.01em;word-break:keep-all;overflow-wrap:normal}
-  h1 .l1{display:block;color:var(--ink)}
-  h1 .l2{display:block;color:var(--red);white-space:nowrap}
-  h1 .sp{display:none}
-  @media (max-width:640px){h1{font-size:clamp(28px,8.4vw,36px)}h1 .l2{white-space:normal}h1 .sp{display:inline}}
-  .tagline{font-size:clamp(18px,2.2vw,22px);font-weight:700;margin:0 0 14px;color:var(--ink)}
-  .lead{color:var(--muted);font-size:16px;max-width:560px;margin:0 0 28px}
-  .cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--line-green);color:#fff;font-weight:700;padding:14px 26px;border-radius:999px;box-shadow:0 8px 24px rgba(6,199,85,.22);transition:transform .15s}
-  .cta:hover{transform:translateY(-1px)}
-  .cta.mail{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:none;margin-left:10px}
-  .cta.red{background:var(--red);color:#fff;box-shadow:0 8px 24px rgba(214,25,53,.22)}
-  @media (max-width:520px){.cta{width:100%}.cta.mail{margin:10px 0 0}}
-  .services-inline{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:14px;color:var(--muted);font-weight:500}
-  .services-inline span::before{content:"";display:inline-block;width:8px;height:8px;background:var(--red);border-radius:2px;margin-right:8px;vertical-align:1px}
-  .hero-visual{display:flex;justify-content:center;align-items:center}
-  .hero-visual picture{display:block;width:100%;max-width:600px}
-  .card .art picture{display:block;width:100%;height:100%}
-  .hero-visual img.logo-fallback{width:min(320px,70vw);filter:drop-shadow(0 18px 40px rgba(214,25,53,.18))}
-  .hero-visual img.kv{width:100%;max-width:600px;aspect-ratio:3/2;height:auto;object-fit:cover;border-radius:20px;box-shadow:0 24px 60px rgba(36,35,38,.14);background:var(--bg2)}
-  @media (max-width:860px){.hero-visual img.kv{max-width:100%}}
-  /* sections */
-  section{padding:76px 0;border-top:1px solid var(--line)}
-  section.alt{background:var(--bg2)}
-  .kicker{font-size:13px;letter-spacing:.18em;color:var(--red);font-weight:700;margin-bottom:10px}
-  h2{font-size:clamp(24px,3.2vw,34px);margin:0 0 14px;font-weight:900;line-height:1.35;color:var(--ink)}
-  .sub{color:var(--muted);max-width:680px;margin:0 0 36px}
-  /* demo showcase */
-  .showcase{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-  @media (max-width:860px){.showcase{grid-template-columns:1fr}}
-  .phone{width:300px;max-width:100%;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:36px;padding:14px;box-shadow:0 24px 60px rgba(36,35,38,.12)}
-  .phone .screen{background:#8aa4bd;border-radius:26px;overflow:hidden;font-size:13px;color:#111}
-  .phone .bar{background:#fff;padding:10px 14px;display:flex;align-items:center;gap:8px;font-weight:700;color:#111;border-bottom:1px solid #e5e5e5}
-  .phone .bar .av{width:26px;height:26px;border-radius:50%;background:var(--red)}
-  .phone .bar small{color:#666;font-weight:400;margin-left:auto;font-size:11px}
-  .chat{padding:12px 10px;display:flex;flex-direction:column;gap:8px}
-  .msg{max-width:82%;padding:8px 11px;border-radius:14px;line-height:1.5;font-size:12.5px;position:relative}
-  .msg.user{align-self:flex-end;background:#8de35c;border-bottom-right-radius:4px}
-  .msg.ai{align-self:flex-start;background:#fff;border-bottom-left-radius:4px}
-  .msg .t{display:block;font-size:10px;color:#345;margin-top:3px;text-align:right}
-  .msg.ai .t{text-align:left}
-  .tag{display:inline-block;font-size:10px;background:var(--red-tint);color:var(--red);border-radius:6px;padding:1px 6px;margin-bottom:4px;font-weight:700}
-  .phone .foot{background:#fff;padding:9px 12px;color:#999;font-size:12px;border-top:1px solid #e5e5e5}
-  .caption{text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
-  /* cards */
-  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  @media (max-width:760px){.cards{grid-template-columns:1fr}}
-  .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
-  .card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:var(--red)}
-  .card .art{margin:0 0 4px;border-radius:12px;overflow:hidden;background:var(--bg2);border:1px solid var(--line);aspect-ratio:3/2}
-  .card .art img{width:100%;height:100%;object-fit:cover;display:block}
-  .card .role{font-size:12px;letter-spacing:.14em;color:var(--red);font-weight:700}
-  .card h3{margin:0;font-size:20px;font-weight:900}
-  .card p{margin:0;color:var(--muted);font-size:15px}
-  .demo{margin-top:6px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.7;color:var(--ink)}
-  .demo .lbl{font-size:11px;color:var(--red);letter-spacing:.12em;font-weight:700;margin-bottom:6px}
-  .mail .hd{color:var(--muted);font-size:12px;border-bottom:1px dashed var(--line);padding-bottom:6px;margin-bottom:8px}
-  .mail .hl{background:var(--red-tint);border-radius:3px;padding:0 3px}
-  .shorts{display:flex;gap:8px}
-  .short{flex:1;aspect-ratio:9/16;border-radius:8px;background:linear-gradient(160deg,#fff,#F3EFF0);border:1px solid var(--line);position:relative;overflow:hidden;min-width:0}
-  .short::after{content:"";position:absolute;left:12%;right:12%;bottom:14%;height:10px;background:#D9D4D5;border-radius:3px}
-  .short::before{content:"";position:absolute;left:12%;right:35%;bottom:26%;height:10px;background:var(--red);border-radius:3px}
-  .short span{position:absolute;top:8px;left:8px;font-size:10px;color:var(--muted)}
-  /* why */
-  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media (max-width:760px){.why{grid-template-columns:1fr}}
-  .why div{padding:22px;border-radius:14px;background:#fff;border:1px solid var(--line)}
-  .why b{display:block;font-size:16px;margin-bottom:6px}
-  .why p{margin:0;color:var(--muted);font-size:14.5px}
-  /* flow */
-  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:step}
-  @media (max-width:760px){.flow{grid-template-columns:1fr}}
-  .step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
-  .step::before{counter-increment:step;content:"0" counter(step);font-size:13px;color:var(--red);font-weight:900;letter-spacing:.14em}
-  .step h3{margin:6px 0 6px;font-size:17px}
-  .step p{margin:0;color:var(--muted);font-size:14.5px}
-  /* company */
-  dl{display:grid;grid-template-columns:9em 1fr;gap:10px 18px;margin:0}
-  @media (max-width:520px){dl{grid-template-columns:1fr}dt{margin-top:8px}}
-  dt{color:var(--muted)}dd{margin:0}
-  /* contact */
-  .contact{background:#fff;border:1px solid var(--line);border-radius:22px;padding:40px 36px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
-  @media (max-width:760px){.contact{grid-template-columns:1fr;padding:30px 22px}}
-  .contact h2{margin-bottom:8px}
-  .contact p{color:var(--muted);margin:0 0 20px}
-  .contact .qr{display:none;text-align:center;color:var(--muted);font-size:12px}
-  .contact .qr img{width:150px;height:150px;margin:0 auto 6px;border:1px solid var(--line);border-radius:10px;padding:6px;background:#fff}
-  @media (min-width:761px){.contact .qr{display:block}}
-  .contact .ways{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-  .contact .ways .cta.mail{margin-left:0}
-  .contact small{display:block;color:var(--muted);font-size:13px;margin-top:14px}
-  footer{padding:30px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-  .footbrand{display:flex;align-items:center;gap:8px;color:var(--ink);font-weight:700}
-  .footbrand img{width:22px;height:22px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <title>株式会社ヒロメル｜その強みを、世の中に広めるために。</title>
+  <meta name="description" content="営業・顧客対応・発信を、AIで仕組み化。株式会社ヒロメルは、営業メールの自動化、公式LINEのAI応対、動画の切り抜き、業務へのAI導入を、設計から運用まで支援します。">
+  <link rel="canonical" href="https://hiromeru-inc.com/">
+  <meta property="og:title" content="株式会社ヒロメル｜その強みを、世の中に広めるために。">
+  <meta property="og:description" content="営業・顧客対応・発信を、AIで仕組み化。設計から運用まで、事業が広がる仕組みを一緒につくります。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://hiromeru-inc.com/">
+  <meta property="og:image" content="https://hiromeru-inc.com/assets/og-image-v2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="800">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/hiromeru-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site-20261103.css">
+  <link rel="stylesheet" href="assets/creative-20261103.css">
+  <script src="assets/site-20261103.js" defer></script>
 </head>
 <body>
-<nav><div class="wrap">
-  <a class="brand" href="#"><img src="assets/hiromeru-logo.png" alt="ヒロメル"><span>株式会社ヒロメル</span></a>
-  <div class="links"><a href="#services">サービス</a><a href="#flow">進め方</a><a href="#company">会社概要</a><a class="line" href="https://lin.ee/5yEYApJ" target="_blank" rel="noopener">LINEで相談する</a></div>
-</div></nav>
-
-<header class="hero">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow">株式会社ヒロメル</span>
-      <h1><span class="l1">その強みを、</span><span class="l2">世の中に<br class="sp">広めるために。</span></h1>
-      <p class="tagline">営業・顧客対応・発信を、AIで仕組み化。</p>
-      <p class="lead">株式会社ヒロメルは、営業メールの自動化、公式LINEのAI応対、動画の切り抜き、業務へのAI導入を支援します。お客様の強みを伝える機会を増やし、届いた問い合わせに対応し、日々の仕事が続く仕組みを整えます。</p>
-      <a class="cta" href="https://lin.ee/5yEYApJ" target="_blank" rel="noopener">LINEで相談する</a><a class="cta mail" href="mailto:contact@hiromeru-inc.com?subject=%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B">メールで相談する</a>
-      <div class="services-inline"><span>営業メールの自動化</span><span>公式LINEのAI応対</span><span>動画の切り抜き</span><span>業務へのAI導入支援</span></div>
-    </div>
-    <div class="hero-visual"><picture><source type="image/webp" srcset="assets/hero-workplace-v2-768.webp 768w, assets/hero-workplace-v2.webp 1536w" sizes="(max-width:860px) 100vw, 50vw"><img class="kv" src="assets/hero-workplace-v2.jpg" width="1536" height="1024" alt="PCの画面を一緒に見ながら打ち合わせをしている職場のイメージ" fetchpriority="high" decoding="async"></picture></div>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="#top" aria-label="株式会社ヒロメル トップへ"><span class="brand-mark"><img src="assets/hiromeru-logo.png" width="1254" height="1254" alt=""></span><span class="brand-name">HIROMERU<span>株式会社ヒロメル</span></span></a>
+    <nav class="desktop-nav" aria-label="メインメニュー"><a href="#services">サービス</a><a href="#approach">私たちの考え方</a><a href="#flow">導入の流れ</a><a href="#company">会社情報</a></nav>
+    <a class="header-contact" href="#contact">相談する <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span></button>
   </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="モバイルメニュー" hidden><a href="#services">サービス <span>01</span></a><a href="#approach">私たちの考え方 <span>02</span></a><a href="#flow">導入の流れ <span>03</span></a><a href="#company">会社情報 <span>04</span></a><a href="#contact">お問い合わせ <span>↗</span></a></nav>
 </header>
-
-<section id="services"><div class="wrap">
-  <div class="kicker">SERVICES</div>
-  <h2>4つのサービス</h2>
-  <p class="sub">営業の機会づくり、問い合わせへの対応、発信、日々の業務。この4つをAIで支え、「作って終わり」ではなく運用まで一式でお引き受けします。まず現状を伺い、内容に応じてお見積りします。</p>
-  <div class="cards">
-    <div class="card">
-      <figure class="art"><picture><source type="image/webp" srcset="assets/service-email-photo-v2-768.webp 768w, assets/service-email-photo-v2.webp 1536w" sizes="(max-width:760px) 100vw, 50vw"><img src="assets/service-email-photo-v2.jpg" width="1536" height="1024" alt="ノートパソコンでメールを作成している手元のイメージ" loading="lazy" decoding="async"></picture></figure>
-      <div class="role">営業の機会づくり</div>
-      <h3>営業メールの自動化</h3>
-      <p>宛先の収集から、相手の会社ごとに内容を差し込んだ文面の作成、送信、返信の検知までを一式で自動化します。返信が来た文面と来なかった文面の差を記録し、書き方を更新し続けます。二重送信の防止と配信停止の管理も仕組みに含みます。</p>
-      <div class="demo mail"><div class="lbl">こう動きます</div><div class="hd">宛先: 〇〇工務店 様　｜　件名: 「見積もり後に連絡が途切れる」を減らす案</div>〇〇工務店様の、<span class="hl">自然素材の注文住宅を子育て世帯向けに</span>提案されているご案内を拝見しました。見積もり後の…（会社ごとに自動で書き分け）</div>
-    </div>
-    <div class="card">
-      <figure class="art"><picture><source type="image/webp" srcset="assets/service-line-photo-v2-768.webp 768w, assets/service-line-photo-v2.webp 1536w" sizes="(max-width:760px) 100vw, 50vw"><img src="assets/service-line-photo-v2.jpg" width="1536" height="1024" alt="店舗のカウンターでスマートフォンの問い合わせに応対しているイメージ" loading="lazy" decoding="async"></picture></figure>
-      <div class="role">問い合わせへの対応</div>
-      <h3>公式LINEのAI応対</h3>
-      <p>LINEやメールに届いた問い合わせにAIが24時間一次対応し、予約の受付・変更・リマインドまで自動化します。答えは御社のサイトや案内に書いてある事実だけ。判断が要るものは、整理した状態で担当者に渡します。</p>
-      <div class="demo"><div class="lbl">こう動きます</div>お客様「駐車場はありますか」→ AI「店舗前に2台分ございます。満車の場合は隣接のコインパーキングをご案内しています」→ 予約の受付へ</div>
-    </div>
-    <div class="card">
-      <figure class="art"><picture><source type="image/webp" srcset="assets/service-video-photo-v2-768.webp 768w, assets/service-video-photo-v2.webp 1536w" sizes="(max-width:760px) 100vw, 50vw"><img src="assets/service-video-photo-v2.jpg" width="1536" height="1024" alt="パソコンで動画を編集している作業風景のイメージ" loading="lazy" decoding="async"></picture></figure>
-      <div class="role">発信</div>
-      <h3>動画の切り抜き</h3>
-      <p>お手持ちの長尺動画（YouTube・セミナー・配信など）から見どころを選び、縦型のショート動画に編集して毎日1本ずつお届けします。TikTok・Instagramリール・YouTubeショートへ同じ素材から展開します。</p>
-      <div class="demo"><div class="lbl">こう動きます</div>
-        <div class="shorts"><div class="short"><span>#01</span></div><div class="short"><span>#02</span></div><div class="short"><span>#03</span></div></div>
-        <div style="margin-top:8px;color:var(--muted)">1本の60分セミナー → 要点テロップ付きの60秒 × 毎日1本</div>
-      </div>
-    </div>
-    <div class="card">
-      <figure class="art"><picture><source type="image/webp" srcset="assets/service-ai-photo-v2-768.webp 768w, assets/service-ai-photo-v2.webp 1536w" sizes="(max-width:760px) 100vw, 50vw"><img src="assets/service-ai-photo-v2.jpg" width="1536" height="1024" alt="資料を広げて業務の進め方を整理している打ち合わせのイメージ" loading="lazy" decoding="async"></picture></figure>
-      <div class="role">日々の業務</div>
-      <h3>業務へのAI導入支援</h3>
-      <p>「どこがAIで自動化できて、どこは人がやるべきか」を業務を伺ったうえで整理し、日々の事務作業（返信の下書き、日報、集計など）の自動化を、運用まで含めてご支援します。</p>
-      <div class="demo"><div class="lbl">こう動きます</div>業務の棚卸し → 自動化する所・人が残る所の線引き → 小さく作って毎日回す → 効いた所から広げる</div>
-    </div>
-  </div>
-</div></section>
-
-<section class="alt"><div class="wrap showcase">
-  <div>
-    <div class="kicker">LIVE DEMO</div>
-    <h2>深夜23時の予約変更も、<br>朝には片づいている。</h2>
-    <p class="sub" style="margin-bottom:14px">これは当社が自社で毎日動かしている公式LINEのAI応対の実例です。お客様の質問にはサイトや案内に書いてある事実だけで答え、予約表を更新し、担当者には整理された結果だけが届きます。</p>
-    <p class="sub">御社のLINEでも、同じ形をまず無料の返答例からお見せします。</p>
-  </div>
-  <div>
-      <div class="phone"><div class="screen">
-        <div class="bar"><span class="av"></span>公式LINE<small>23:41</small></div>
-        <div class="chat">
-          <div class="msg user">明日の予約、時間を15時に変えられますか？<span class="t">23:41 既読</span></div>
-          <div class="msg ai"><span class="tag">AIが一次対応</span>お問い合わせありがとうございます。明日15:00のお席は空きがございます。変更を承りますので、お名前をお願いいたします。<span class="t">23:41</span></div>
-          <div class="msg user">田中です<span class="t">23:42 既読</span></div>
-          <div class="msg ai">田中様、明日15:00へ変更いたしました。前日の夜にリマインドをお送りします。<span class="t">23:42</span></div>
-          <div class="msg ai"><span class="tag">担当者へ引き継ぎ</span>「田中様 15:00へ変更／予約表 更新済み」<span class="t">担当者にだけ通知</span></div>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="shell hero-inner">
+      <div class="hero-overline"><span class="eyebrow"><i></i> AIで、事業が広がる仕組みを。</span><span class="hero-index">HIROMERU INC. / TOKYO</span></div>
+      <div class="hero-stage">
+        <h1 id="hero-title"><span>その強みを、</span><span>世の中に</span><span class="hero-final"><span>広める</span>ために。</span></h1>
+        <div class="hero-collage" aria-label="AIと、人の仕事がつながるイメージ">
+          <span class="collage-cross" aria-hidden="true">＋</span><span class="collage-outline" aria-hidden="true"></span>
+          <figure class="collage-main"><img src="assets/hero-workplace-v2.webp" alt="画面を見ながら仕事の進め方を相談するイメージ" width="1536" height="1024" fetchpriority="high"></figure>
+          <div class="collage-label"><span>LINE × AI</span><span aria-hidden="true">↗</span></div>
+          <figure class="collage-small"><img src="assets/service-video-photo-v2-768.webp" alt="ショート動画の編集作業のイメージ" width="768" height="512"><figcaption>CONTENT THAT CONNECTS.</figcaption></figure>
+          <span class="collage-seal" aria-hidden="true">MAKE<br>IT REACH.<span>↗</span></span>
         </div>
-        <div class="foot">メッセージを入力</div>
-      </div></div>
-      <p class="caption">営業時間外でも、AIが答えて予約表まで更新。担当者には整理された結果だけ届きます。</p>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <div class="kicker">WHY</div>
-  <h2>ヒロメルの考え方</h2>
-  <div class="why">
-    <div><b>売り物を自分たちで毎日使う</b><p>公式LINEのAI応対も、営業メールの自動化も、動画の切り抜きも、まず自社の業務で回しています。うまくいっていない部分も含めて、実物をお見せします。</p></div>
-    <div><b>既存の導線を壊さない</b><p>LINE、予約システム、Webサイトは今のまま。会話や作業の部分だけをAIに置き換えるので、切り替えの負担がありません。</p></div>
-    <div><b>数字を約束しない</b><p>返信率や再生数を先に約束することはしません。運用して出た実測値だけをお伝えし、次の一手を一緒に決めます。</p></div>
-  </div>
-</div></section>
-
-<section id="flow" class="alt"><div class="wrap">
-  <div class="kicker">FLOW</div>
-  <h2>進め方</h2>
-  <div class="flow">
-    <div class="step"><h3>現状を伺う</h3><p>LINEかオンラインで30分ほど。いまの問い合わせ・営業・発信の流れと、手が回っていない所を教えてください。</p></div>
-    <div class="step"><h3>実例を作ってお見せする</h3><p>御社のサイトや資料をもとに、AIの返答例・メールの文面・切り抜きの案などを先に作ります。ここまで費用はかかりません。</p></div>
-    <div class="step"><h3>小さく始めて、毎日回す</h3><p>効く所から導入し、運用しながら調整します。数字は実測値でご報告します。</p></div>
-  </div>
-</div></section>
-
-<section id="company"><div class="wrap">
-  <div class="kicker">COMPANY</div>
-  <h2>会社概要</h2>
-  <dl>
-    <dt>会社名</dt><dd>株式会社ヒロメル</dd>
-    <dt>代表取締役</dt><dd>玉手 志弥（たまて ゆきや）</dd>
-    <dt>事業内容</dt><dd>営業メールの自動化、公式LINEのAI応対、動画の切り抜き、業務へのAI導入支援</dd>
-    <dt>所在地</dt><dd>東京都品川区戸越5-18-16-2F</dd>
-    <dt>電話</dt><dd><a href="tel:08060511363">080-6051-1363</a></dd>
-    <dt>メール</dt><dd><a href="mailto:contact@hiromeru-inc.com">contact@hiromeru-inc.com</a></dd>
-    <dt>公式LINE</dt><dd><a href="https://lin.ee/5yEYApJ" target="_blank" rel="noopener">LINEで相談する</a></dd>
-    <dt>関連会社</dt><dd><a href="https://soi-co-ltd.com/" target="_blank" rel="noopener">株式会社SOI</a>（人材採用のSNS運用・AIショートドラマの映像制作。同じ代表が運営しています）</dd>
-  </dl>
-</div></section>
-
-<section id="contact" class="alt"><div class="wrap">
-  <div class="contact">
-    <div>
-      <div class="kicker">CONTACT</div>
-      <h2>まず、実例をお見せします</h2>
-      <p>御社のサイトを拝見して、AIの返答例や文面の案を先に作ります。LINEかメールで一言お送りください。</p>
-      <div class="ways">
-        <a class="cta" href="https://lin.ee/5yEYApJ" target="_blank" rel="noopener">LINEで相談する</a>
-        <a class="cta mail" href="mailto:contact@hiromeru-inc.com?subject=%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B">contact@hiromeru-inc.com にメールする</a>
       </div>
-      <small>電話 <a href="tel:08060511363">080-6051-1363</a>（代表取締役 玉手志弥）</small>
+      <div class="hero-bottom">
+        <div class="hero-copy"><p class="hero-lead">営業・顧客対応・発信を、AIで仕組み化。</p><p>日々の仕事を整えて、あなたの事業が広がる時間を。<br>設計から運用まで、ヒロメルが一緒につくります。</p></div>
+        <a class="hero-cta" href="#services"><span>ヒロメルにできること</span><span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="hero-tail"><span class="mono">HUMAN IDEAS. TECHNOLOGY THAT WORKS.</span><button class="motion-toggle" type="button" aria-pressed="false">動きを止める</button><a href="#services">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
     </div>
-    <div class="qr"><img src="assets/hiromeru-line-qr.png" alt="公式LINEのQRコード">スマートフォンで読み取り</div>
-  </div>
-</div></section>
+  </section>
+  <div class="word-strip" aria-hidden="true"><div><span>届ける。</span><i>↗</i><span>応える。</span><i>＋</i><span>続ける。</span><i>↗</i><span>広める。</span><i>＋</i><span>届ける。</span><i>↗</i><span>応える。</span><i>＋</i><span>続ける。</span><i>↗</i><span>広める。</span><i>＋</i></div></div>
 
-<footer><div class="wrap">
-  <div class="footbrand"><img src="assets/hiromeru-logo.png" alt="">株式会社ヒロメル</div>
-  <div>© 株式会社ヒロメル</div>
-</div></footer>
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="shell">
+      <div class="section-head reveal"><p class="eyebrow"><span class="section-number">01</span> SERVICES<span class="title-cross" aria-hidden="true">＋</span></p><div><h2 id="services-title">事業が広がる、<br>4つの支援。</h2><p class="section-intro">届ける機会を増やし、届いた声に応え、発信を続ける。<br class="desktop-break">そのための仕事を、ひとつずつ仕組みにしていきます。</p></div></div>
+      <article class="service-row reveal" id="service-email">
+        <div class="service-number">01<span>OUTREACH</span></div>
+        <div class="service-body"><p class="service-role">営業の機会を、継続的につくる。</p><h3>営業メールの自動化</h3><p>相手の会社に合わせた文面づくりから送信、返信の検知まで。営業の入口を整え、対話に集中できる時間をつくります。</p><details><summary>支援内容を見る<span aria-hidden="true">＋</span></summary><ul><li>送信先の整理・会社ごとの文面作成</li><li>送信・返信の検知と記録</li><li>二重送信の防止・配信停止の管理</li><li>返信の状況をもとにした文面の改善</li></ul></details></div>
+        <figure class="service-image"><picture><source type="image/webp" srcset="assets/service-email-photo-v2-768.webp 768w, assets/service-email-photo-v2.webp 1536w" sizes="(max-width:700px) 90vw, 32vw"><img src="assets/service-email-photo-v2.jpg" width="1536" height="1024" alt="パソコンでメールを作成する手元のイメージ" loading="lazy" decoding="async"></picture></figure>
+      </article>
+      <article class="service-row reveal" id="service-line">
+        <div class="service-number">02<span>RESPONSE</span></div>
+        <div class="service-body"><p class="service-role">問い合わせを、次の会話につなげる。</p><h3>公式LINEのAI応対</h3><p>よくある質問への返答、予約の受付・変更、担当者への引き継ぎ。御社の情報に基づく一次対応を、営業時間外にも。</p><details><summary>支援内容を見る<span aria-hidden="true">＋</span></summary><ul><li>サイト・資料をもとにした回答の設計</li><li>予約受付・変更・リマインドの連携</li><li>人の判断が必要な問い合わせの引き継ぎ</li><li>実際のやり取りをもとにした回答の調整</li></ul></details></div>
+        <figure class="service-image"><picture><source type="image/webp" srcset="assets/service-line-photo-v2-768.webp 768w, assets/service-line-photo-v2.webp 1536w" sizes="(max-width:700px) 90vw, 32vw"><img src="assets/service-line-photo-v2.jpg" width="1536" height="1024" alt="店舗でスマートフォンの問い合わせを確認するイメージ" loading="lazy" decoding="async"></picture></figure>
+      </article>
+      <article class="service-row reveal" id="service-video">
+        <div class="service-number">03<span>CONTENT</span></div>
+        <div class="service-body"><p class="service-role">ひとつの素材を、届く発信に変える。</p><h3>動画の切り抜き</h3><p>YouTubeやセミナーなどの長尺動画から、伝わる見どころを。縦型ショート動画に編集し、継続的な発信を支えます。</p><details><summary>支援内容を見る<span aria-hidden="true">＋</span></summary><ul><li>長尺動画からの見どころ選定</li><li>縦型編集・要点テロップの作成</li><li>TikTok・Instagramリール・YouTubeショートへの展開</li><li>ご希望の発信ペースに合わせた制作・納品</li></ul></details></div>
+        <figure class="service-image"><picture><source type="image/webp" srcset="assets/service-video-photo-v2-768.webp 768w, assets/service-video-photo-v2.webp 1536w" sizes="(max-width:700px) 90vw, 32vw"><img src="assets/service-video-photo-v2.jpg" width="1536" height="1024" alt="モニターで動画を編集する作業風景のイメージ" loading="lazy" decoding="async"></picture></figure>
+      </article>
+      <article class="service-row reveal" id="service-ai">
+        <div class="service-number">04<span>WORKFLOW</span></div>
+        <div class="service-body"><p class="service-role">日々の仕事に、余白をつくる。</p><h3>業務へのAI導入支援</h3><p>返信の下書き、日報、集計など、繰り返しの仕事から。AIに任せる部分と人が担う部分を整理し、現場で使える形にします。</p><details><summary>支援内容を見る<span aria-hidden="true">＋</span></summary><ul><li>業務の棚卸し・自動化する範囲の整理</li><li>既存ツールとの連携方法の検討</li><li>小さな試作から導入・運用へ</li><li>実際の使い方に合わせた継続的な調整</li></ul></details></div>
+        <figure class="service-image"><picture><source type="image/webp" srcset="assets/service-ai-photo-v2-768.webp 768w, assets/service-ai-photo-v2.webp 1536w" sizes="(max-width:700px) 90vw, 32vw"><img src="assets/service-ai-photo-v2.jpg" width="1536" height="1024" alt="資料を広げ、業務の進め方を整理するイメージ" loading="lazy" decoding="async"></picture></figure>
+      </article>
+    </div>
+  </section>
+
+  <section class="experience section" aria-labelledby="experience-title">
+    <div class="shell experience-grid">
+      <div class="experience-copy reveal"><p class="eyebrow light"><i></i> AUTOMATION IN PRACTICE</p><h2 id="experience-title">すぐ答える。<br>必要なときは、<br><span>人につなぐ。</span></h2><p>すべてをAI任せにするのではなく、<br>答えられることと、人が判断することを分ける。<br>問い合わせの流れから、丁寧に設計します。</p><a class="text-link light" href="#contact">御社の返答例を相談する<span class="circle-arrow" aria-hidden="true">↗</span></a></div>
+      <div class="response-demo reveal">
+        <div class="demo-heading"><span class="demo-dot"></span><strong>公式LINEのAI応対</strong><span>設計イメージ</span></div>
+        <div class="demo-tabs" role="tablist" aria-label="AI応対の例を選択"><button role="tab" id="tab-faq" aria-selected="true" aria-controls="panel-faq" data-tab="faq">よくある質問</button><button role="tab" id="tab-booking" aria-selected="false" aria-controls="panel-booking" tabindex="-1" data-tab="booking">予約の相談</button><button role="tab" id="tab-handoff" aria-selected="false" aria-controls="panel-handoff" tabindex="-1" data-tab="handoff">人への引き継ぎ</button></div>
+        <div class="demo-panel" role="tabpanel" id="panel-faq" aria-labelledby="tab-faq" tabindex="0"><div class="message customer"><small>お客様</small><p>駐車場はありますか？</p></div><div class="message assistant-message"><small><span>AI</span> 登録された店舗情報を確認</small><p>店舗前に2台分ございます。満車の場合は、近隣のコインパーキングをご利用いただけます。</p></div><div class="demo-result"><span aria-hidden="true">↳</span> よくある質問には、御社の情報をもとに回答。</div></div>
+        <div class="demo-panel" role="tabpanel" id="panel-booking" aria-labelledby="tab-booking" tabindex="0" hidden><div class="message customer"><small>お客様</small><p>明日の予約を15時に変更できますか？</p></div><div class="message assistant-message"><small><span>AI</span> 変更の希望を受付</small><p>ご変更の希望を承ります。ご予約のお名前と、現在のご予約時間を教えてください。</p></div><div class="demo-result"><span aria-hidden="true">↳</span> 必要な情報を確認。予約システムとの連携は個別に設計。</div></div>
+        <div class="demo-panel" role="tabpanel" id="panel-handoff" aria-labelledby="tab-handoff" tabindex="0" hidden><div class="message customer"><small>お客様</small><p>通常のプランにない内容でもお願いできますか？</p></div><div class="message assistant-message"><small><span>AI</span> 人の判断が必要な相談</small><p>詳しい内容を担当者が確認します。ご希望を教えていただけますか？内容を整理して引き継ぎます。</p></div><div class="demo-result"><span aria-hidden="true">↳</span> 判断が必要な相談は、情報を整理して担当者へ。</div></div>
+        <p class="demo-note">架空の店舗を想定した会話例です。回答内容・連携範囲は導入先ごとに設計します。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section approach" id="approach" aria-labelledby="approach-title"><div class="shell">
+    <div class="section-head reveal"><p class="eyebrow"><span class="section-number">02</span> OUR APPROACH</p><div><h2 id="approach-title">導入の先まで、<br>一緒に考える。</h2><p class="section-intro">大切なのは、技術の新しさだけではありません。<br>あなたの仕事の中で、使い続けられること。</p></div></div>
+    <div class="principles"><article class="reveal"><span class="principle-number">01</span><h3>自分たちでも、使う。</h3><p>LINE応対も、営業メールも、動画の切り抜きも。自社の業務で使いながら、動く仕組みと改善点をお見せします。</p></article><article class="reveal"><span class="principle-number">02</span><h3>今ある仕組みから。</h3><p>お使いのLINEや予約システム、Webサイトを確認。現場の流れを踏まえ、無理のない導入方法を考えます。</p></article><article class="reveal"><span class="principle-number">03</span><h3>実測して、改善する。</h3><p>返信率や再生数を先に約束しません。運用で得られた数字を見ながら、次に変えるところを一緒に決めます。</p></article></div>
+  </div></section>
+
+  <section class="section flow" id="flow" aria-labelledby="flow-title"><div class="shell">
+    <div class="section-head reveal"><p class="eyebrow"><span class="section-number">03</span> PROCESS</p><div><h2 id="flow-title">小さく始めて、<br>使いながら育てる。</h2></div></div>
+    <ol class="flow-list"><li class="reveal"><span class="flow-number">01</span><div><h3>いまの仕事を、聞かせてください。</h3><p>LINEやオンラインで30分ほど。営業・問い合わせ・発信の流れと、手が回っていないところを伺います。</p></div><span class="flow-tag">ヒアリング</span></li><li class="reveal"><span class="flow-number">02</span><div><h3>御社の情報で、実例をつくります。</h3><p>サイトや資料をもとに、AIの返答例やメール文面、切り抜きの案をご提案。ここまで費用はかかりません。</p></div><span class="flow-tag">試作・ご提案</span></li><li class="reveal"><span class="flow-number">03</span><div><h3>必要なところから、運用へ。</h3><p>支援範囲とお見積りをご確認いただいてから導入。実際の使い方と数字を見ながら、調整を続けます。</p></div><span class="flow-tag">導入・改善</span></li></ol>
+  </div></section>
+
+  <section class="section company" id="company" aria-labelledby="company-title"><div class="shell company-grid"><div class="reveal"><p class="eyebrow"><span class="section-number">04</span> COMPANY</p><h2 id="company-title">ヒロメルについて</h2><p class="company-message">その強みを、世の中に広めるために。<br>人の仕事と、テクノロジーの間に。</p></div><dl class="company-info reveal"><div><dt>会社名</dt><dd>株式会社ヒロメル</dd></div><div><dt>代表取締役</dt><dd>玉手 志弥 <small>たまて ゆきや</small></dd></div><div><dt>事業内容</dt><dd>営業メールの自動化／公式LINEのAI応対／動画の切り抜き／業務へのAI導入支援</dd></div><div><dt>所在地</dt><dd>東京都品川区戸越5-18-16-2F</dd></div><div><dt>お問い合わせ</dt><dd><a href="mailto:contact@hiromeru-inc.com">contact@hiromeru-inc.com <span aria-hidden="true">↗</span></a><br><a href="tel:08060511363">080-6051-1363</a></dd></div><div><dt>関連会社</dt><dd><a class="company-soi" href="https://soi-co-ltd.com/" target="_blank" rel="noopener">株式会社SOI <span aria-hidden="true">↗</span></a><small class="company-description">人材採用のSNS運用・AIショートドラマの映像制作。<br>同じ代表が運営しています。</small></dd></div></dl></div></section>
+
+  <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="shell contact-grid"><div><p class="eyebrow light"><i></i> LET’S TALK</p><h2 id="contact-title">まず、あなたの仕事を<br>聞かせてください。</h2><p>やりたいことが、まだまとまっていなくても大丈夫。<br>御社の情報をもとに、最初の実例からご提案します。</p></div><div class="contact-actions"><a class="contact-primary" href="https://lin.ee/5yEYApJ" target="_blank" rel="noopener"><span><small>まずは気軽に</small>LINEで相談する</span><span aria-hidden="true">↗</span></a><a class="contact-mail" href="mailto:contact@hiromeru-inc.com?subject=%E7%9B%B8%E8%AB%87%E5%B8%8C%E6%9C%9B">メールで相談する <span aria-hidden="true">↗</span></a><div class="qr-row"><img src="assets/hiromeru-line-qr.png" alt="ヒロメル公式LINEのQRコード" width="84" height="84" loading="lazy"><p>スマートフォンで読み取って<br>公式LINEへ。</p></div></div></div></section>
+</main>
+<footer class="site-footer"><div class="shell footer-top"><a class="brand footer-brand" href="#top" aria-label="株式会社ヒロメル トップへ"><span class="brand-mark"><img src="assets/hiromeru-logo.png" width="1254" height="1254" alt=""></span><span class="brand-name">HIROMERU<span>株式会社ヒロメル</span></span></a><a class="back-top" href="#top">BACK TO TOP <span aria-hidden="true">↑</span></a></div><div class="shell footer-bottom"><span>© HIROMERU INC.</span><span>その強みを、世の中に広めるために。</span></div></footer>
 </body>
 </html>
