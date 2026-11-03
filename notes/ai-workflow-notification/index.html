@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="FjSLVmfiquUaNdXIpQSnxzV__6p9uMF0jCkCXfR2QVA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <title>AI業務自動化の運用記録｜通知が届かず処理を分け直した話｜株式会社ヒロメル</title>
+  <meta name="description" content="自社の要返信整理で起きた通知の遅れ。情報の取得・AIによる判断・通知を分け直した2026年10月の改修と、確認できた内容を紹介します。">
+  <link rel="canonical" href="https://hiromeru-inc.com/notes/ai-workflow-notification/">
+  <meta property="og:title" content="AI業務自動化の運用記録｜通知が届かず処理を分け直した話｜株式会社ヒロメル">
+  <meta property="og:description" content="自社の要返信整理で起きた通知の遅れ。情報の取得・AIによる判断・通知を分け直した2026年10月の改修と、確認できた内容を紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://hiromeru-inc.com/notes/ai-workflow-notification/">
+  <meta property="og:image" content="https://hiromeru-inc.com/assets/og-image-v2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="800">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/assets/hiromeru-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site-20261103.css">
+  <link rel="stylesheet" href="/assets/creative-20261103.css">
+  <script src="/assets/site-20261103.js" defer></script>
+
+<link rel="stylesheet" href="/assets/notes-20261103.css"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://hiromeru-inc.com/#organization", "name": "株式会社ヒロメル", "url": "https://hiromeru-inc.com/", "logo": "https://hiromeru-inc.com/assets/hiromeru-logo.png", "email": "contact@hiromeru-inc.com", "telephone": "+81-80-6051-1363", "address": {"@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "東京都", "addressLocality": "品川区", "streetAddress": "戸越5-18-16-2F"}, "description": "公式LINEのAI応対、営業メールの自動化、動画の切り抜き、業務へのAI導入を支援します。"}, {"@type": "BlogPosting", "@id": "https://hiromeru-inc.com/notes/ai-workflow-notification/#article", "headline": "AI業務自動化の運用記録｜通知が届かず処理を分け直した話", "description": "自社の要返信整理で起きた通知の遅れ。情報の取得・AIによる判断・通知を分け直した2026年10月の改修と、確認できた内容を紹介します。", "datePublished": "2026-11-03", "dateModified": "2026-11-03", "inLanguage": "ja", "mainEntityOfPage": "https://hiromeru-inc.com/notes/ai-workflow-notification/", "author": {"@type": "Organization", "name": "株式会社ヒロメル", "url": "https://hiromeru-inc.com/#company"}, "publisher": {"@id": "https://hiromeru-inc.com/#organization"}, "image": "https://hiromeru-inc.com/assets/og-image-v2.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hiromeru-inc.com/"}, {"@type": "ListItem", "position": 2, "name": "実践ノート", "item": "https://hiromeru-inc.com/notes/"}, {"@type": "ListItem", "position": 3, "name": "AI業務自動化の運用記録｜通知が届かず処理を分け直した話", "item": "https://hiromeru-inc.com/notes/ai-workflow-notification/"}]}]}</script></head><body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/#top" aria-label="株式会社ヒロメル トップへ"><span class="brand-mark"><img src="/assets/hiromeru-logo.png" width="1254" height="1254" alt=""></span><span class="brand-name">HIROMERU<span>株式会社ヒロメル</span></span></a>
+    <nav class="desktop-nav" aria-label="メインメニュー"><a href="/#services">サービス</a><a href="/#approach">私たちの考え方</a><a href="/notes/">実践ノート</a><a href="/#company">会社情報</a></nav>
+    <a class="header-contact" href="/#contact">相談する <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="メニューを開く"><span></span><span></span></button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="モバイルメニュー" hidden><a href="/#services">サービス <span>01</span></a><a href="/#approach">私たちの考え方 <span>02</span></a><a href="/#flow">導入の流れ <span>03</span></a><a href="/#company">会社情報 <span>04</span></a><a href="/notes/">実践ノート <span>05</span></a><a href="/#contact">お問い合わせ <span>↗</span></a></nav>
+</header>
+<main id="main" class="notes-main"><header class="notes-hero"><div class="notes-shell"><p class="notes-crumb"><a href="/">ホーム</a> / <a href="/notes/">実践ノート</a></p><p class="eyebrow">PRACTICE NOTES / 2026-11-03</p><h1>AI業務自動化の運用記録｜通知が届かず処理を分け直した話</h1><p>自社の要返信整理で起きた通知の遅れ。情報の取得・AIによる判断・通知を分け直した2026年10月の改修と、確認できた内容を紹介します。</p><p class="notes-credit">制作・編集：株式会社ヒロメル</p></div></header><section class="notes-content"><div class="notes-shell"><nav class="notes-toc" aria-label="目次"><b>この記事の内容</b><ul><li><a href="#s1">取得・判断・通知を分けた</a></li><li><a href="#s2">変更したことと、効果として言えることを分ける</a></li></ul></nav><article><p>自社で使っている要返信の整理ツールで、日中に必要な通知が届かず、夜の日報だけが届くことがありました。</p>
+<p>このツールは、届いた連絡から返信や確認が必要なものを拾い、担当者に知らせるために作ったものです。2026年10月の運用記録には、AIに情報取得の処理を実行させようとして、実行許可の確認待ちで止まっていたことが残っています。</p>
+<p>AIが返事を考えられても、その前後の処理が進まなければ、必要な人には届きません。そこで10月11日、処理の分担を変更しました。</p>
+<h2 id="s1">取得・判断・通知を分けた</h2>
+<p>変更前は、AIに情報を取りに行かせる処理が含まれていました。変更後は、次のように役割を分けています。</p>
+<div class="article-table"><table><thead><tr><th scope="col">処理</th><th scope="col">変更後の担当</th></tr></thead><tbody><tr><td>新着の情報を取り出す</td><td>定型のプログラム</td></tr><tr><td>内容を読み、返信案や要対応事項を整理する</td><td>AI</td></tr><tr><td>作成された通知を社内の連絡先へ送る</td><td>定型のプログラム</td></tr></tbody></table></div>
+<p>決まった時刻に未対応の一覧を送る処理も、既存のリストから組み立てる形にしました。そのまとめ直しのためだけに、毎回AIを呼ぶ必要はありません。</p>
+<p>この役割分担は、実際の処理コードにも残っています。情報の取得や通知の送信を、AIがその都度コマンドを選んで実行する工程から切り離しました。</p>
+<h2 id="s2">変更したことと、効果として言えることを分ける</h2>
+<p>今回確認できるのは、通知が遅れたという運用記録と、それを受けて処理を変更した事実です。変更後の対応時間や通知漏れ率を、同じ条件で比較した集計は、この記事では示していません。</p>
+<p>自社で使う仕組みだからこそ、途中で止まった場所まで振り返れます。このケースで見直したのは、AIに渡す指示だけでなく、情報を取り出してから担当者へ届くまでの流れでした。</p>
+<p>ヒロメルでは、公式LINEのAI応対や業務へのAI導入を支援しています。現在の業務の流れを確認し、AIが担当する部分と、既存の仕組みや人が担当する部分を整理するところからご相談いただけます。</p>
+<p><a href="/#services">ヒロメルのAI導入支援について</a></p>
+<p>※本記事は社内の要返信整理ツールの検証記録です。公式LINEの顧客導入事例ではありません。</p>
+</article><aside class="notes-author"><b>株式会社ヒロメルの実践ノート</b><p>自社の作業・判断・検証記録をもとに制作しています。記録で確認できる内容と、まだ検証していない成果を区別して紹介します。</p><a href="/#company">会社情報</a> / <a href="mailto:contact@hiromeru-inc.com">内容に関するお問い合わせ</a></aside><div class="notes-cta"><h2>今ある仕事から、AIの使いどころを。</h2><p>公式LINEのAI応対や業務へのAI導入について、ご相談いただけます。</p><a href="https://lin.ee/5yEYApJ">LINEで相談する →</a><a href="/#services">サービス内容を見る →</a></div></div></section></main><footer class="site-footer"><div class="shell footer-top"><a class="brand footer-brand" href="/#top" aria-label="株式会社ヒロメル トップへ"><span class="brand-mark"><img src="/assets/hiromeru-logo.png" width="1254" height="1254" alt=""></span><span class="brand-name">HIROMERU<span>株式会社ヒロメル</span></span></a><a class="back-top" href="/#top">BACK TO TOP <span aria-hidden="true">↑</span></a></div><div class="shell footer-bottom"><span>© HIROMERU INC.</span><span>その強みを、世の中に広めるために。</span></div></footer></body></html>
